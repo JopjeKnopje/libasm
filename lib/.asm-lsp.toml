@@ -1,0 +1,11 @@
+[default_config]
+version = "0.10.1"
+assembler = "nasm"
+instruction_set = "x86-64"
+
+[default_config.opts]
+compiler = "nasm"
+# Should match the flags in the `Makefile`
+compile_flags_txt = ["-felf64"]
+diagnostics = true
+default_diagnostics = true
