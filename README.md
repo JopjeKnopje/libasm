@@ -29,6 +29,17 @@ apt install nasm
 ## Why does our ASM procedure need to start with an `_` for C to recognize it?
 Read this on it: https://stackoverflow.com/a/1035937
 
+
+## Makefile automatic variables
+[gnu.org](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)[stackoverflow](https://stackoverflow.com/a/3220288)
+```makefile
+all: library.cpp main.cpp
+```
+- $@ evaluates to all
+- $< evaluates to library.cpp
+- $^ evaluates to library.cpp main.cpp
+
+
 ## Architecture
 ### x86
 

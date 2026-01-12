@@ -45,9 +45,9 @@ compile_commands:
 	$(MAKE) | compiledb
 
 
-TEST_DIR  	:= unit_tests
+TEST_DIR  		:= unit_tests
 TEST_SRC_FILES	:= test_ft_strlen.c
-TEST_SRC_LIST 	:= $(addprefix $(TEST_DIR)/, $(TEST_SRC_FILES))
+TEST_SRC_LIST	:= $(addprefix $(TEST_DIR)/, $(TEST_SRC_FILES))
 TEST_BIN_DIR 	:= $(TEST_DIR)/bin
 TEST_BIN_LIST	:= $(patsubst $(TEST_DIR)/%.c, $(TEST_BIN_DIR)/%, $(TEST_SRC_LIST))
 
@@ -57,9 +57,6 @@ $(TEST_BIN_DIR)/%: $(TEST_DIR)/%.c
 	$(CC) $(CFLAGS) $(IFLAGS) $< -o $@ -lcriterion $(LFLAGS)
 
 
-
-
 test: lib_asm $(TEST_BIN_LIST)
-	# for test in $(TEST_BIN_LIST) ; do ./$$test -j1 ; done
-	echo $(TEST_BIN_LIST)
+	for test in $(TEST_BIN_LIST) ; do ./$$test -j1 ; done
 
