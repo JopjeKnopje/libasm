@@ -1,7 +1,9 @@
 #include <stdio.h>
 
+void _test_func();
+
 int main()
 {
-	printf("test123\n")
-	return EXIT_SUCCESS;
+	_test_func();
+	return 0;
 }
