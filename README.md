@@ -77,4 +77,4 @@ x86-64 is a 64-bit extension of the x86 instruction set.
 
 # Sources
 - [Intel vs AT&T ASM](https://stackoverflow.com/a/8550917)
-- [UNIX Syscalls table]()
+- [UNIX Syscalls table](https://www.chromium.org/chromium-os/developer-library/reference/linux-constants/syscalls/)
