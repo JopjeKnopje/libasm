@@ -81,4 +81,8 @@ x86-64 is a 64-bit extension of the x86 instruction set.
 
 # Sources
 - [Intel vs AT&T ASM](https://stackoverflow.com/a/8550917)
-- [UNIX Syscalls table](https://www.chromium.org/chromium-os/developer-library/reference/linux-constants/syscalls/)
+- [UNIX Syscalls table](https://www.chromium.org/chromium-os/developer-library/reference/linux-constants/syscalls/)- [Calling Convetions](https://wiki.osdev.org/Calling_Conventions)
+- [CPU Registers x86](https://wiki.osdev.org/CPU_Registers_x86)
+- [NASM Docs](https://www.nasm.us/docs/3.01/)
+- [NASM instructions](http://www.posix.nl/linuxassembly/nasmdochtml/nasmdoca.html)
+- [x86 assembly guide](https://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
