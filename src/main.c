@@ -1,9 +1,6 @@
-#include <stdio.h>
-
-void _test_func();
+#include "libasm.h"
 
 int main()
 {
-	_test_func();
-	return 0;
+	test_func();
 }
