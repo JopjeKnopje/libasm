@@ -2,6 +2,8 @@
 - Setup debugger
 - https://gcc.gnu.org/onlinedocs/gcc/Gcov.html
 - https://www.throwtheswitch.org/unity
+- asm-lsp creates a `.o` file in `lib/src` wtf?
+- asm-lsp thinks we're doing `GAS` instead of `nasm`
 
 # Subject
 ## Common instructions
