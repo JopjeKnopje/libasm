@@ -1,6 +1,8 @@
 #ifndef LIBASM_H
 #define LIBASM_H
 
-void test_func();
+#include <stdint.h>
 
-#endif 
+int64_t ft_strlen();
+
+#endif

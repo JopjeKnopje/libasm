@@ -1,8 +1,15 @@
+#include "libasm.h"
 #include <criterion/criterion.h>
+#include <criterion/hooks.h>
+#include <criterion/internal/assert.h>
+#include <criterion/types.h>
+#include <stdint.h>
+#include <stdio.h>
 
-Test(misc, failing)
+#define OurTest(...) Test(ft_strlen, ...);
+
+Test(ft_strlen, strlen_slen)
 {
-	cr_assert(0);
+    int64_t res = ft_strlen();
+    cr_assert(res == 2147483648, "Got result: %ld\n", res);
 }
-
-Test(misc, passing) { cr_assert(1); }

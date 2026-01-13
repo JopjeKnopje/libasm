@@ -1,6 +1,9 @@
 #include "libasm.h"
+#include <stdint.h>
+#include <stdio.h>
 
 int main()
 {
-	test_func();
+    printf("%d", INT32_MAX);
+    ft_strlen();
 }

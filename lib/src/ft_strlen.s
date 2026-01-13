@@ -1,8 +1,10 @@
 ; make `_test_func` a global symbol to expose it to the linker
-global test_func
+global ft_strlen
 
-test_func:
-	mov rax, 60
-	mov rdi, 2
-	syscall
+
+
+ft_strlen:
+	mov eax, 8
+	; mov edx, 1
+	ret 
 
