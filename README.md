@@ -2,6 +2,38 @@
 - Setup debugger
 - Project structure
 
+# Subject
+## Common instructions
+- Your Makefile must at least contain the rules `$(NAME)`, `all`, `clean`, `fclean` and
+`re`. It must recompile/relink only the necessary files.
+- You must write **64-bit** assembly, beware of the "calling convention".
+- You **can’t do** inline ASM, you must do ’*s’ files.
+- You must compile your assembly code with nasm.
+- You must use the **Intel syntax**, not the AT&T syntax.
+- It is forbidden to use the compilation flag: `-no-pie`.
+
+## Mandatory part
+
+- The library must be called `libasm.a`.
+- You must submit a main function that will test your functions and compile with
+your library to demonstrate that it is functional.
+### Functions
+- You must rewrite the following functions in assembly:
+	- ft_strlen (man 3 strlen)
+	- ft_strepy (man 3 strepy)
+	- ft_stremp (man 3 strcmp)
+	- ft write (man 2 write)
+	- ft_read (man 2 read)
+	- ft_strdup (man 3 strdup, you can call to malloc)
+- You must check for errors during syscalls and handle them properly when needed.
+- Your code must set the variable errno properly. For that, you are allowed to call the extern `___error` or `errno_location`.
+
+
+# Commands
+List the symbols in the lib
+```bash
+nm lib/libasm.so
+```
 
 # Dev setup
 ## Tool chain
