@@ -62,7 +62,7 @@ $(TEST_BIN_DIR):
 	mkdir $@
 
 $(TEST_BIN_DIR)/%: $(TEST_DIR)/%.c | $(TEST_BIN_DIR) 
-	$(CC) $(CFLAGS) $(IFLAGS) $< -o $@ -lcriterion $(LFLAGS)
+	$(CC) $(CFLAGS) $(IFLAGS)  $< -o $@ $(LIB_ASM) -lcriterion $(LFLAGS)
 
 test: lib_asm $(TEST_BIN_LIST)
 	for test in $(TEST_BIN_LIST) ; do ./$$test -j1 ; done
