@@ -1,6 +1,5 @@
 # TODO
 - Setup debugger
-- Project structure
 
 # Subject
 ## Common instructions
@@ -57,9 +56,7 @@ apt install nasm
 - [criterion](https://github.com/Snaipe/Criterion?tab=readme-ov-file#packages) for unit tests.
 
 
-# Questions?   
-## Why does our ASM procedure need to start with an `_` for C to recognize it?
-Read this on it: https://stackoverflow.com/a/1035937
+# 🤓 Knowledge
 
 
 ## Makefile automatic variables
@@ -67,16 +64,15 @@ Read this on it: https://stackoverflow.com/a/1035937
 ```makefile
 all: library.cpp main.cpp
 ```
-- $@ evaluates to all
-- $< evaluates to library.cpp
-- $^ evaluates to library.cpp main.cpp
+- `$@` evaluates to all
+- `$<` evaluates to library.cpp
+- `$^` evaluates to library.cpp main.cpp
 
 
 ## Architecture
-### x86
-
-### x64
-
+### x86-64
+[wiki](https://en.wikipedia.org/wiki/X86-64)
+x86-64 is a 64-bit extension of the x86 instruction set.
 
 
 # Sources
