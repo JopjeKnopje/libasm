@@ -1,9 +1,10 @@
 # TODO
-- Setup debugger
+- Setup debugger.
 - https://gcc.gnu.org/onlinedocs/gcc/Gcov.html
-- https://www.throwtheswitch.org/unity
+- https://www.throwtheswitch.org/unity.
 - asm-lsp creates a `.o` file in `lib/src` wtf?
-- asm-lsp thinks we're doing `GAS` instead of `nasm`
+- asm-lsp thinks we're doing `GAS` instead of `nasm`.
+- Read about ELF format and sections.
 
 # Subject
 ## Common instructions
@@ -72,6 +73,12 @@ all: library.cpp main.cpp
 - `$<` evaluates to library.cpp
 - `$^` evaluates to library.cpp main.cpp
 
+## ELF
+### Sections
+From: `man elf`
+
+- `.bss` (Block Starting Symbol) holds the statically allocated variables that have not been assigned yet.
+- `.text` holds the "text", or executable instructions of a program.
 
 ## Architecture
 ### x86-64
@@ -86,3 +93,4 @@ x86-64 is a 64-bit extension of the x86 instruction set.
 - [NASM Docs](https://www.nasm.us/docs/3.01/)
 - [NASM instructions](http://www.posix.nl/linuxassembly/nasmdochtml/nasmdoca.html)
 - [x86 assembly guide](https://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
+- [ELF Sections](https://refspecs.linuxbase.org/elf/gabi4+/ch4.sheader.html) (Scroll to "Special Sections")
