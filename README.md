@@ -39,6 +39,15 @@ List the symbols in the lib
 nm lib/libasm.so
 ```
 
+## Generate assembly
+To generate asm from c code you can use the following command
+```
+gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
+```
+- `-masm` sets the dialect, options are: [`att`, `intel`].
+- `-Og` suppresses any code optimization passes, giving us a pretty clear view to how the code relates to the assembly.
+- `fverbose-asm` adds extra comments to make the assembly more readable.
+
 # Dev setup
 ## Tool chain
 ### clang-format
@@ -100,3 +109,4 @@ x86-64 is a 64-bit extension of the x86 instruction set.
 - [x86 assembly guide](https://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
 - [ELF Sections](https://refspecs.linuxbase.org/elf/gabi4+/ch4.sheader.html) (Scroll to "Special Sections")
 - [GCC Inline Assembly](https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)
+- [Demystifing .rodata](https://iifx.dev/en/articles/460023732/demystifying-rodata-viewing-string-literals-in-godbolt-assembly)
