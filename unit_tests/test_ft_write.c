@@ -4,11 +4,11 @@
 #include <criterion/internal/assert.h>
 #include <criterion/types.h>
 #include <stdint.h>
-#include <stdio.h>
 
 
-Test(ft_strlen, strlen_slen)
+Test(ft_write, write)
 {
     int64_t res = ft_strlen();
     cr_assert(res == 2147483648, "Got result: %ld\n", res);
 }
+

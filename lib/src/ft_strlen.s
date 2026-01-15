@@ -9,4 +9,4 @@ global ft_strlen
 ft_strlen:
 	mov eax, 8
 	; mov edx, 1
-	ret 
+	ret
