@@ -77,8 +77,13 @@ all: library.cpp main.cpp
 ### Sections
 From: `man elf`
 
-- `.bss` (Block Starting Symbol) holds the statically allocated variables that have not been assigned yet.
+- `.bss` (Block Starting Symbol) holds the statically allocated variables that have not been assigned.
 - `.text` holds the "text", or executable instructions of a program.
+- `.data` holds initialized data, its writable (`SHF_WRITE`).
+- `.rodata` read-only data, such as `const` variables..
+
+!> [!NOTE] Note to self
+> I've only seen `.bss` when declaring a global var, not when declaring a static inside a function.
 
 ## Architecture
 ### x86-64
@@ -94,3 +99,4 @@ x86-64 is a 64-bit extension of the x86 instruction set.
 - [NASM instructions](http://www.posix.nl/linuxassembly/nasmdochtml/nasmdoca.html)
 - [x86 assembly guide](https://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
 - [ELF Sections](https://refspecs.linuxbase.org/elf/gabi4+/ch4.sheader.html) (Scroll to "Special Sections")
+- [GCC Inline Assembly](https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)
