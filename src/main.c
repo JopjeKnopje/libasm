@@ -1,9 +1,8 @@
-#include "libasm.h"
-#include <stdint.h>
-#include <stdio.h>
+#include <unistd.h>
+
+const char *text_var = "text123";
 
 int main()
 {
-    printf("%d", INT32_MAX);
-    ft_strlen();
+	write(1, text_var, 8);
 }

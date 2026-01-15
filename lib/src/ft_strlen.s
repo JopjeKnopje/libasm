@@ -7,6 +7,9 @@ SECTION .text
 global ft_strlen
 
 ft_strlen:
-	mov eax, 8
-	; mov edx, 1
+	mov rax, 1
+	mov rdi, 1
+	mov	rsi, $msg
+	mov rdx, $msg_len
+	syscall
 	ret 

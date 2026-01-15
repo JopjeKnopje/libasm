@@ -2,7 +2,8 @@
 #define LIBASM_H
 
 #include <stdint.h>
+#include <sys/types.h>
 
-int64_t ft_strlen();
+size_t ft_strlen();
 
 #endif
