@@ -53,7 +53,7 @@ run: all
 
 
 TEST_DIR  		:= unit_tests
-TEST_SRC_FILES	:= test_ft_strlen.c
+TEST_SRC_FILES	:= test_ft_write.c
 TEST_SRC_LIST	:= $(addprefix $(TEST_DIR)/, $(TEST_SRC_FILES))
 TEST_BIN_DIR 	:= $(TEST_DIR)/bin
 TEST_BIN_LIST	:= $(patsubst $(TEST_DIR)/%.c, $(TEST_BIN_DIR)/%, $(TEST_SRC_LIST))

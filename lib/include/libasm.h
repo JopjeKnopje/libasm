@@ -4,6 +4,6 @@
 #include <stdint.h>
 #include <sys/types.h>
 
-size_t ft_strlen();
+ssize_t ft_write(int fildes, const void *buf, size_t nbyte);
 
 #endif
