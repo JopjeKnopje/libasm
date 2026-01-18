@@ -2,7 +2,7 @@ NAME		:= app
 
 CFLAGS		:= -Wall -Wextra -Werror
 # CFLAGS += -g -fsanitize=address
-IFLAGS		:= -Iinclude -Ilib/include
+IFLAGS		:= -Iinclude -Ilib/libasm/include
 
 
 SRC_DIR		:= src
@@ -12,7 +12,7 @@ SRC_LIST	:= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ_DIR		:= obj
 OBJ_LIST	:= $(patsubst $(SRC_DIR)%.s, $(OBJ_DIR)%.o, $(SRC_LIST))
 
-LIB_ASM		:= lib/libasm.a
+LIB_ASM		:= lib/libasm/libasm.a
 
 
 all: lib_asm $(NAME)
@@ -29,7 +29,7 @@ $(OBJDIR):
 
 .PHONY: lib_asm
 lib_asm:
-	$(MAKE) -C lib
+	$(MAKE) -C lib/libasm
 
 .PHONY: clean
 clean:
