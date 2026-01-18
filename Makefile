@@ -2,7 +2,7 @@ NAME		:= app
 
 CFLAGS		:= -Wall -Wextra -Werror
 # CFLAGS += -g -fsanitize=address
-IFLAGS		:= -Iinclude -Ilib/libasm/include
+IFLAGS		:= -I include -I lib/libasm/include
 
 
 SRC_DIR		:= src
@@ -58,11 +58,16 @@ TEST_SRC_LIST	:= $(addprefix $(TEST_DIR)/, $(TEST_SRC_FILES))
 TEST_BIN_DIR 	:= $(TEST_DIR)/bin
 TEST_BIN_LIST	:= $(patsubst $(TEST_DIR)/%.c, $(TEST_BIN_DIR)/%, $(TEST_SRC_LIST))
 
+TEST_UNITY_ROOT	:= lib/Unity
+TEST_UNITY_SRC	:= $(TEST_UNITY_ROOT)/src/unity.c
+TEST_IFLAGS		:= -I $(TEST_UNITY_ROOT)/src
+
 $(TEST_BIN_DIR):
 	mkdir $@
 
-$(TEST_BIN_DIR)/%: $(TEST_DIR)/%.c $(LIB_ASM) | $(TEST_BIN_DIR) 
-	$(CC) $(CFLAGS) $(IFLAGS)  $< -o $@ $(LIB_ASM) -lcriterion $(LFLAGS)
+$(TEST_BIN_DIR)/%: $(TEST_DIR)/%.c $(LIB_ASM) | $(TEST_BIN_DIR)
+	$(CC) $(CFLAGS) $(IFLAGS) $(TEST_UNITY_SRC) $(TEST_IFLAGS) $< -o $@ $(LIB_ASM) 
 
+.PHONY: test
 test: lib_asm $(TEST_BIN_LIST)
 	for test in $(TEST_BIN_LIST) ; do ./$$test -j1 ; done

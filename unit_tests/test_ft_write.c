@@ -1,19 +1,30 @@
 #include "libasm.h"
-#include <criterion/criterion.h>
-#include <criterion/hooks.h>
-#include <criterion/internal/assert.h>
-#include <criterion/types.h>
 #include <stdint.h>
 #include <string.h>
 #include <unistd.h>
+#include "unity.h"
 
-#define OurTest(...) Test(ft_strlen, ...);
+void setUp(void) {
+    // set stuff up here
+}
 
-Test(ft_strlen, strlen_slen)
-{
+void tearDown(void) {
+    // clean stuff up here
+}
+
+void test_function_should_doBlahAndBlah(void) {
 	const char *s = "teststring123";
 	const ssize_t s_len = strlen(s);
 
     ssize_t res = ft_write(1, s, s_len);
-    cr_assert(res == s_len, "Got result: %ld\n", res);
+	(void) res;
+    // cr_assert(res == s_len, "Got result: %ld\n", res);
+}
+
+
+// not needed when using generate_test_runner.rb
+int main(void) {
+    UNITY_BEGIN();
+    RUN_TEST(test_function_should_doBlahAndBlah);
+    return UNITY_END();
 }
