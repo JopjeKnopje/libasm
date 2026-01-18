@@ -1,9 +1,15 @@
 <div align=center>
 
 # libasm
+Going deeper: re-writing basic C-functions in Intel x86-64 Assembly.
 
 <br />
 </div>
+
+
+# Overview
+I've mainly used this project to dive deeper into unit-testing, since these isolated functions are perfect for that.
+This is a pretty dense README file, since it contains the Codam subject. And some my notes of my freshly aquired knowledge while learning about assembly and the ELF format.
 
 # TODO
 - Setup debugger.
@@ -76,13 +82,12 @@ gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
 - `-Og` suppresses any code optimization passes, giving us a pretty clear view to how the code relates to the assembly.
 - `fverbose-asm` adds extra comments to make the assembly more readable.
 ```
-objdump -M intel -d
 ```
+objdump -M intel -d
 
 
 
 # 🤓 Knowledge
-
 
 ## Makefile automatic variables
 [gnu.org](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)[stackoverflow](https://stackoverflow.com/a/3220288)
@@ -139,14 +144,12 @@ void func(int arg_1, int arg_2, int arg_3, int arg_4, int arg_5, int arg_6)
 - [The stack explained](https://youtu.be/u_-oQx_4jvo)
 T.B.A
 
-### mov vs lea
+## Instructions
+### MOV vs LEA
 - `LEA` means Load Effective Address
 - `MOV` means Load Value
 
 `LEA` moves a pointer to whatever you're addressing, whereas `MOV` load the value.
-
-
-
 
 ## Architecture
 ### x86-64
