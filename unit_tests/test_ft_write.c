@@ -69,6 +69,16 @@ void test_zero_length()
     TEST_ASSERT_EQUAL_INT64(0, bytes_written);
 }
 
+void test_invalid_fd_return_val()
+{
+    const char *s = "test_string";
+    const ssize_t s_len = strlen(s);
+
+    ssize_t bytes_written = ft_write(-1, s, s_len);
+
+    TEST_ASSERT_EQUAL_INT64(-1, bytes_written);
+}
+
 void test_invalid_fd_errno()
 {
     const char *s = "test_string";
@@ -79,14 +89,4 @@ void test_invalid_fd_errno()
     const size_t expected_errno = 9;
     TEST_ASSERT_EQUAL_INT32_MESSAGE(expected_errno, errno, "[%s] [%s]", strerror(expected_errno),
                                     strerror(errno));
-}
-
-void test_invalid_fd_return_val()
-{
-    const char *s = "test_string";
-    const ssize_t s_len = strlen(s);
-
-    ssize_t bytes_written = ft_write(-1, s, s_len);
-
-    TEST_ASSERT_EQUAL_INT64(-1, bytes_written);
 }
