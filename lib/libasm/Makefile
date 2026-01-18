@@ -10,6 +10,7 @@ OBJ_LIST	:= $(patsubst $(SRC_DIR)%.s, $(OBJ_DIR)%.o, $(SRC_LIST))
 
 $(NAME): $(OBJ_LIST)
 	ar rcs $(NAME) $(OBJ_LIST)
+	@echo libasm succesfully built
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.s | $(OBJ_DIR)
 	nasm -o $@ $< -f elf64
