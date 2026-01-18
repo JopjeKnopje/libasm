@@ -1,12 +1,18 @@
-# TODO
+<div align=center>
+
+# libasm
+
+<br />
+</div>
+
+# ✅ TODO
 - Setup debugger.
 - https://gcc.gnu.org/onlinedocs/gcc/Gcov.html
 - https://www.throwtheswitch.org/unity.
-- asm-lsp creates a `.o` file in `lib/src` wtf?
 - asm-lsp thinks we're doing `GAS` instead of `nasm`.
 - Read about ELF format and sections.
 
-# Subject
+# 📋 Subject
 ## Common instructions
 - Your Makefile must at least contain the rules `$(NAME)`, `all`, `clean`, `fclean` and
 `re`. It must recompile/relink only the necessary files.
@@ -33,26 +39,8 @@ your library to demonstrate that it is functional.
 - Your code must set the variable errno properly. For that, you are allowed to call the extern `___error` or `errno_location`.
 
 
-# Commands
-List the symbols in the lib
-```bash
-nm lib/libasm.so
-```
 
-## Generate assembly
-To generate asm from c code you can use the following command
-```
-gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
-```
-- `-masm` sets the dialect, options are: [`att`, `intel`].
-- `-Og` suppresses any code optimization passes, giving us a pretty clear view to how the code relates to the assembly.
-- `fverbose-asm` adds extra comments to make the assembly more readable.
-```
-objdump -M intel -d
-```
-
-
-# Dev setup
+# 🏗️ Dev setup
 ## Toolchain
 ### clang-format
 [clang-format](https://clang.llvm.org/docs/ClangFormat.html) is part of clang-tools, install with.
@@ -72,6 +60,25 @@ apt install nasm
 
 ## Dependencies
 - [criterion](https://github.com/Snaipe/Criterion?tab=readme-ov-file#packages) for unit tests.
+
+## Handy commands
+List the symbols in the lib
+```bash
+nm lib/libasm.so
+```
+
+## Generate assembly
+To generate asm from c code you can use the following command
+```
+gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
+```
+- `-masm` sets the dialect, options are: [`att`, `intel`].
+- `-Og` suppresses any code optimization passes, giving us a pretty clear view to how the code relates to the assembly.
+- `fverbose-asm` adds extra comments to make the assembly more readable.
+```
+objdump -M intel -d
+```
+
 
 
 # 🤓 Knowledge
@@ -114,7 +121,7 @@ From: `man elf`
 x86-64 is a 64-bit extension of the x86 instruction set.
 
 
-# Sources
+# 📚 Sources
 - [Intel vs AT&T ASM](https://stackoverflow.com/a/8550917)
 - [UNIX Syscalls table](https://www.chromium.org/chromium-os/developer-library/reference/linux-constants/syscalls/)- [Calling Convetions](https://wiki.osdev.org/Calling_Conventions)
 - [CPU Registers x86](https://wiki.osdev.org/CPU_Registers_x86)
