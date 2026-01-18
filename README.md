@@ -5,7 +5,7 @@
 <br />
 </div>
 
-# ✅ TODO
+# TODO
 - Setup debugger.
 - https://gcc.gnu.org/onlinedocs/gcc/Gcov.html
 - https://www.throwtheswitch.org/unity.
@@ -106,6 +106,27 @@ From: `man elf`
 > I've only seen `.bss` when declaring a global var, not when declaring a static inside a function.
 
 ## Memory
+### Calling Argument Order
+```c
+void func(int arg_1, int arg_2, int arg_3, int arg_4, int arg_5, int arg_6)
+```
+
+| Argument NR        | Register           |
+| ------------- |:--------------|
+| `arg_1`| `rdi` |
+| `arg_2`      | `rsi`      |
+| `arg_3`      | `rdx`      |
+| `arg_4`      | `rcx`      |
+| `arg_5`      | `r8`      |
+| `arg_6`      | `r9`      |
+
+### The stack
+- The stack grows towards `0x0`
+- Stack pointer `RSP` points to the last (most recent entry) on the stack.
+
+- [The stack explained](https://youtu.be/u_-oQx_4jvo)
+T.B.A
+
 ### mov vs lea
 - `LEA` means Load Effective Address
 - `MOV` means Load Value
