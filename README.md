@@ -93,6 +93,12 @@ all: library.cpp main.cpp
 - `$<` evaluates to library.cpp
 - `$^` evaluates to library.cpp main.cpp
 
+```makefile
+all:: main.c
+```
+
+The double colon `::` is used for seperating out rules, more info [here](https://web.archive.org/web/20180122002430/http://owen.sj.ca.us/~rk/howto/slides/make/slides/makecolon.html)
+
 ## ELF
 ### Sections
 From: `man elf`
