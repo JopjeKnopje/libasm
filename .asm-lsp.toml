@@ -6,6 +6,6 @@ instruction_set = "x86-64"
 [default_config.opts]
 compiler = "nasm"
 # Should match the flags in the `Makefile`
-compile_flags_txt = ["-felf64"]
+compile_flags_txt = ["-felf64", "-E"]
 diagnostics = true
 default_diagnostics = true
