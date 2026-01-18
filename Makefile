@@ -10,20 +10,21 @@ SRC_FILES	:= main.c
 SRC_LIST	:= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR		:= obj
-OBJ_LIST	:= $(patsubst $(SRC_DIR)%.s, $(OBJ_DIR)%.o, $(SRC_LIST))
+OBJ_LIST	:= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_LIST))
 
 LIB_ASM		:= lib/libasm/libasm.a
 
 
 all: lib_asm $(NAME)
 
+
 $(NAME): lib_asm $(OBJ_LIST)
 	$(CC) $(OBJ_LIST) $(LIB_ASM) $(CFLAGS) $(IFLAGS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(IFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $<
 
-$(OBJDIR):
+$(OBJ_DIR):
 	mkdir $(OBJ_DIR)
 
 
@@ -40,8 +41,8 @@ fclean: clean
 	rm -f $(NAME)
 
 .PHONY: re
-re:
-	$(MAKE) -C lib re
+re: fclean 
+	$(MAKE) -C lib/libasm re
 
 .PHONY: compile_commands
 compile_commands:
