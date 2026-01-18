@@ -1,25 +1,25 @@
-<div align=center>
-
-# libasm
-Going deeper: re-writing basic C-functions in Intel x86-64 Assembly.
-
-<br />
-</div>
 
 
-# Overview
+<h1 align="center">libasm</h1>
+<p align="center">re-writing basic C-functions in Intel x86-64 Assembly</p>
+
+<hr />
+
+</p>
+
+## Overview
 I've mainly used this project to dive deeper into unit-testing, since these isolated functions are perfect for that.
 This is a pretty dense README file, since it contains the Codam subject. And some my notes of my freshly aquired knowledge while learning about assembly and the ELF format.
 
-# TODO
+## TODO
 - Setup debugger.
 - https://gcc.gnu.org/onlinedocs/gcc/Gcov.html
 - https://www.throwtheswitch.org/unity.
 - asm-lsp thinks we're doing `GAS` instead of `nasm`.
 - Read about ELF format and sections.
 
-# 📋 Subject
-## Common instructions
+## 📋 Subject
+### Common instructions
 - Your Makefile must at least contain the rules `$(NAME)`, `all`, `clean`, `fclean` and
 `re`. It must recompile/relink only the necessary files.
 - You must write **64-bit** assembly, beware of the "calling convention".
@@ -28,12 +28,12 @@ This is a pretty dense README file, since it contains the Codam subject. And som
 - You must use the **Intel syntax**, not the AT&T syntax.
 - It is forbidden to use the compilation flag: `-no-pie`.
 
-## Mandatory part
+### Mandatory part
 
 - The library must be called `libasm.a`.
 - You must submit a main function that will test your functions and compile with
 your library to demonstrate that it is functional.
-### Functions
+#### Functions
 - You must rewrite the following functions in assembly:
 	- ft_strlen (man 3 strlen)
 	- ft_strepy (man 3 strepy)
@@ -46,34 +46,31 @@ your library to demonstrate that it is functional.
 
 
 
-# 🏗️ Dev setup
-## Toolchain
-### clang-format
+## 🏗️ Dev setup
+### Toolchain
+#### clang-format
 [clang-format](https://clang.llvm.org/docs/ClangFormat.html) is part of clang-tools, install with.
 ```bash
 apt install clang-tools
 ```
-### prek
+#### prek
 This will install [prek](https://github.com/j178/prek?tab=readme-ov-file#installation) into `~/.local/bin`
 ```bash
 curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.2.27/prek-installer.sh | sh
 ```
-### nasm
+#### nasm
 Not installed by default on my pop-os.
 ```
 apt install nasm
 ```
 
-## Dependencies
-- [criterion](https://github.com/Snaipe/Criterion?tab=readme-ov-file#packages) for unit tests.
-
-## Handy commands
+### Handy commands
 List the symbols in the lib
 ```bash
 nm lib/libasm.so
 ```
 
-## Generate assembly
+### Generate assembly
 To generate asm from c code you can use the following command
 ```
 gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
@@ -88,9 +85,9 @@ objdump -M intel -d
 
 
 
-# 🤓 Knowledge
+## 🤓 Knowledge
 
-## Makefile automatic variables
+### Makefile Automatic Variables
 [gnu.org](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)[stackoverflow](https://stackoverflow.com/a/3220288)
 ```makefile
 all: library.cpp main.cpp
@@ -111,8 +108,8 @@ PRECIOUS: intermediate_file.c
 
 Make automatically deletes intermediate file's, use `PRECIOUS` to preserve them.
 
-## ELF
-### Sections
+### ELF
+#### Sections
 From: `man elf`
 
 - `.bss` (Block Starting Symbol) holds the statically allocated variables that have not been assigned.
@@ -120,17 +117,17 @@ From: `man elf`
 - `.data` holds initialized data, its writable (`SHF_WRITE`).
 - `.rodata` read-only data, such as `const` variables..
 
-!> [!NOTE] Note to self
-> I've only seen `.bss` when declaring a global var, not when declaring a static inside a function.
+> [!NOTE] Note to self
+> I've only seen `.bss` when declaring a global variable, not when declaring a static one inside a function.
 
-## Memory
-### Calling Argument Order
+### Memory
+#### Argument Calling Order
 ```c
 void func(int arg_1, int arg_2, int arg_3, int arg_4, int arg_5, int arg_6)
 ```
 
 | Argument NR        | Register           |
-| ------------- |:--------------|
+|:------------- |:--------------|
 | `arg_1`| `rdi` |
 | `arg_2`      | `rsi`      |
 | `arg_3`      | `rdx`      |
@@ -138,27 +135,32 @@ void func(int arg_1, int arg_2, int arg_3, int arg_4, int arg_5, int arg_6)
 | `arg_5`      | `r8`      |
 | `arg_6`      | `r9`      |
 
-### The stack
+#### The stack
 - The stack grows towards `0x0`
 - Stack pointer `RSP` points to the last (most recent entry) on the stack.
 
 - [The stack explained](https://youtu.be/u_-oQx_4jvo)
 T.B.A
 
-## Instructions
-### MOV vs LEA
+#### Calling `__errno_location`
+[..plt](https://stackoverflow.com/questions/5469274/what-does-plt-mean-here)
+[NASM wrt](https://www.nasm.us/doc/nasm03.html#section-3.6)
+
+### Instructions
+#### MOV vs LEA
 - `LEA` means Load Effective Address
 - `MOV` means Load Value
 
-`LEA` moves a pointer to whatever you're addressing, whereas `MOV` load the value.
+`LEA` moves a pointer to whatever you're addressing, whereas `MOV` loads the value.
 
-## Architecture
-### x86-64
+### Architecture
+#### x86-64
 [wiki](https://en.wikipedia.org/wiki/X86-64)
 x86-64 is a 64-bit extension of the x86 instruction set.
+T.B.A
 
 
-# 📚 Sources
+## 📚 Sources
 - [Intel vs AT&T ASM](https://stackoverflow.com/a/8550917)
 - [UNIX Syscalls table](https://www.chromium.org/chromium-os/developer-library/reference/linux-constants/syscalls/)- [Calling Convetions](https://wiki.osdev.org/Calling_Conventions)
 - [CPU Registers x86](https://wiki.osdev.org/CPU_Registers_x86)
@@ -171,3 +173,5 @@ x86-64 is a 64-bit extension of the x86 instruction set.
 - [Bracket operator in ASM](https://stackoverflow.com/a/48608575/7363348)
 https://www.delorie.com/djgpp/doc/ug/asm/calling.html
 - [LEA vs MOV](https://stackoverflow.com/a/1699778/7363348)
+- [godbolt](https://godbolt.org/)
+
