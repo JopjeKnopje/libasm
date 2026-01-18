@@ -53,7 +53,7 @@ objdump -M intel -d
 
 
 # Dev setup
-## Tool chain
+## Toolchain
 ### clang-format
 [clang-format](https://clang.llvm.org/docs/ClangFormat.html) is part of clang-tools, install with.
 ```bash
@@ -98,6 +98,16 @@ From: `man elf`
 !> [!NOTE] Note to self
 > I've only seen `.bss` when declaring a global var, not when declaring a static inside a function.
 
+## Memory
+### mov vs lea
+- `LEA` means Load Effective Address
+- `MOV` means Load Value
+
+`LEA` moves a pointer to whatever you're addressing, whereas `MOV` load the value.
+
+
+
+
 ## Architecture
 ### x86-64
 [wiki](https://en.wikipedia.org/wiki/X86-64)
@@ -114,4 +124,6 @@ x86-64 is a 64-bit extension of the x86 instruction set.
 - [ELF Sections](https://refspecs.linuxbase.org/elf/gabi4+/ch4.sheader.html) (Scroll to "Special Sections")
 - [GCC Inline Assembly](https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)
 - [Demystifing .rodata](https://iifx.dev/en/articles/460023732/demystifying-rodata-viewing-string-literals-in-godbolt-assembly)
+- [Bracket operator in ASM](https://stackoverflow.com/a/48608575/7363348)
 https://www.delorie.com/djgpp/doc/ug/asm/calling.html
+- [LEA vs MOV](https://stackoverflow.com/a/1699778/7363348)
