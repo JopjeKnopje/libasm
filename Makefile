@@ -81,7 +81,7 @@ $(TEST_RUNNER_DIR)/%_runner.c: $(TEST_DIR)/%.c | $(TEST_RUNNER_DIR)
 	ruby $(TEST_UNITY_ROOT)/auto/generate_test_runner.rb $< $@
 
 $(TEST_BIN_DIR)/%: $(TEST_RUNNER_DIR)/%_runner.c $(LIB_ASM) | $(TEST_BIN_DIR)
-	$(CC) $(CFLAGS) $(IFLAGS) $(TEST_UNITY_SRC) $(TEST_DIR)/$*.c $(TEST_IFLAGS) $< -o $@ $(LIB_ASM) 
+	$(CC) $(CFLAGS) $(IFLAGS) $(TEST_UNITY_OPTIONS) $(TEST_UNITY_SRC) $(TEST_DIR)/$*.c $(TEST_IFLAGS) $< -o $@ $(LIB_ASM) 
 
 .PHONY: test
 test: lib_asm $(TEST_BIN_LIST)
