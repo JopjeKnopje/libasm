@@ -47,6 +47,9 @@ re:
 compile_commands:
 	$(MAKE) | compiledb
 
+compile_commands_test:
+	$(MAKE) test | compiledb
+
 .PHONY: run
 run: all
 	./$(NAME)
@@ -56,17 +59,29 @@ TEST_DIR  		:= unit_tests
 TEST_SRC_FILES	:= test_ft_write.c
 TEST_SRC_LIST	:= $(addprefix $(TEST_DIR)/, $(TEST_SRC_FILES))
 TEST_BIN_DIR 	:= $(TEST_DIR)/bin
+TEST_RUNNER_DIR := $(TEST_DIR)/runners
 TEST_BIN_LIST	:= $(patsubst $(TEST_DIR)/%.c, $(TEST_BIN_DIR)/%, $(TEST_SRC_LIST))
 
 TEST_UNITY_ROOT	:= lib/Unity
 TEST_UNITY_SRC	:= $(TEST_UNITY_ROOT)/src/unity.c
-TEST_IFLAGS		:= -I $(TEST_UNITY_ROOT)/src
+TEST_IFLAGS		:= -I $(TEST_UNITY_ROOT)/src 
+TEST_UNITY_OPTIONS := \
+					-DUNITY_INCLUDE_PRINT_FORMATTED \
+					-DUNITY_OUTPUT_COLOR
 
 $(TEST_BIN_DIR):
 	mkdir $@
 
-$(TEST_BIN_DIR)/%: $(TEST_DIR)/%.c $(LIB_ASM) | $(TEST_BIN_DIR)
-	$(CC) $(CFLAGS) $(IFLAGS) $(TEST_UNITY_SRC) $(TEST_IFLAGS) $< -o $@ $(LIB_ASM) 
+$(TEST_RUNNER_DIR):
+	mkdir -p $@
+
+# Save all the generated runners for debugging.
+PRECIOUS: $(patsubst %.c, $(TEST_RUNNER_DIR)/%_runner.c, $(TEST_SRC_FILES))
+$(TEST_RUNNER_DIR)/%_runner.c: $(TEST_DIR)/%.c | $(TEST_RUNNER_DIR)
+	ruby $(TEST_UNITY_ROOT)/auto/generate_test_runner.rb $< $@
+
+$(TEST_BIN_DIR)/%: $(TEST_RUNNER_DIR)/%_runner.c $(LIB_ASM) | $(TEST_BIN_DIR)
+	$(CC) $(CFLAGS) $(IFLAGS) $(TEST_UNITY_SRC) $(TEST_DIR)/$*.c $(TEST_IFLAGS) $< -o $@ $(LIB_ASM) 
 
 .PHONY: test
 test: lib_asm $(TEST_BIN_LIST)

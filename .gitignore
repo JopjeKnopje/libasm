@@ -1,5 +1,6 @@
-app
-obj/
 .cache/
-compile_commands.json
+obj/
 bin/
+unit_tests/runners
+compile_commands.json
+app
