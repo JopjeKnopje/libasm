@@ -99,6 +99,12 @@ all:: main.c
 
 The double colon `::` is used for seperating out rules, more info [here](https://web.archive.org/web/20180122002430/http://owen.sj.ca.us/~rk/howto/slides/make/slides/makecolon.html)
 
+```makefile
+PRECIOUS: intermediate_file.c
+```
+
+Make automatically deletes intermediate file's, use `PRECIOUS` to preserve them.
+
 ## ELF
 ### Sections
 From: `man elf`
