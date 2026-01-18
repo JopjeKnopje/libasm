@@ -81,9 +81,10 @@ gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
 - `-masm` sets the dialect, options are: [`att`, `intel`].
 - `-Og` suppresses any code optimization passes, giving us a pretty clear view to how the code relates to the assembly.
 - `fverbose-asm` adds extra comments to make the assembly more readable.
-```
-```
+
+```bash
 objdump -M intel -d
+```
 
 
 
