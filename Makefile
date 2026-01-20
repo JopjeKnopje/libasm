@@ -84,6 +84,10 @@ $(TEST_RUNNER_DIR)/%_runner.c: $(TEST_DIR)/%.c | $(TEST_RUNNER_DIR)
 $(TEST_BIN_DIR)/%: $(TEST_RUNNER_DIR)/%_runner.c $(LIB_ASM) | $(TEST_BIN_DIR)
 	$(CC) $(CFLAGS) $(IFLAGS) $(TEST_IFLAGS) $(TEST_UNITY_OPTIONS) $(TEST_UNITY_SRC) $(TEST_DIR)/$*.c $< -o $@ $(LIB_ASM) 
 
+
+test_%: $(TEST_BIN_DIR)/test_% | lib_asm
+	./$<
+
 .PHONY: test
 test: lib_asm $(TEST_BIN_LIST)
 	for test in $(TEST_BIN_LIST) ; do ./$$test -j1 ; done
