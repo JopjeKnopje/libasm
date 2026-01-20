@@ -64,6 +64,29 @@ Not installed by default on my pop-os.
 apt install nasm
 ```
 
+#### objconv
+Tool for translating whatever assembly to `nasm` compatible assembly. This one kinda sucks because you have to build it from source, you can clone the repo from 
+
+[objconv - github](https://github.com/gitGNU/objconv)
+
+The Makefile is somewhat broken?
+I fixed it by placing it in the `src/` directory and running it from there.
+
+```bash
+git clone git@github.com:gitGNU/objconv.git
+cd objconv
+mv Makefile src/
+cd src
+make
+```
+
+
+This is the command I use for getting the `nasm` assembly from `src/main.c`
+
+```bash
+gcc src/main.c -Og -o a.out; objconv a.out -fnasm
+```
+
 ### Handy commands
 List the symbols in the lib
 ```bash
@@ -81,6 +104,11 @@ gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
 
 ```bash
 objdump -M intel -d
+```
+
+
+```
+gcc src/main.c -Og && objconv a.out -fnasm
 ```
 
 
