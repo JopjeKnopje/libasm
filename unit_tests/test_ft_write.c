@@ -26,12 +26,6 @@ void tearDown(void)
     TEST_ASSERT_NOT_EQUAL_INT32_MESSAGE(-1, res, "failed closing tempfile: [%s]", strerror(errno));
 }
 
-// parameters
-// zero length
-// size_t max
-// invalid fd
-// write partitial string
-
 void test_write_check_general(void)
 {
     const char *s = "teststring123";

@@ -57,7 +57,8 @@ run: all
 
 
 TEST_DIR  		:= unit_tests
-TEST_SRC_FILES	:= test_ft_write.c
+TEST_SRC_FILES	:= test_ft_write.c \
+				   test_neg_pos.c
 TEST_SRC_LIST	:= $(addprefix $(TEST_DIR)/, $(TEST_SRC_FILES))
 TEST_BIN_DIR 	:= $(TEST_DIR)/bin
 TEST_RUNNER_DIR := $(TEST_DIR)/runners

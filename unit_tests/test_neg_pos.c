@@ -2,6 +2,8 @@
 #include "unity.h"
 #include <stdint.h>
 
+#define BIT(pos) (1 << pos)
+
 void setUp(void) {}
 
 void tearDown(void) {}
@@ -35,15 +37,17 @@ void test_neg_max_int()
     TEST_ASSERT_EQUAL_INT64(INT32_MAX, x);
 }
 
-int8_t bitwise_invert(int8_t x)
-{
-    x ^= 0b10000000;
-
-    return x;
-}
+int8_t bitwise_invert(int8_t x) { return x ^ BIT(7); }
 
 void test_int8_bitwise()
 {
     int8_t x = bitwise_invert(0b11111111);
     TEST_ASSERT_EQUAL_INT8(127, x);
+}
+
+void test_xor_bit()
+{
+    uint8_t hard_coded = 0b10000000;
+    uint8_t shifted = (1 << 7);
+    TEST_ASSERT_EQUAL_INT8(hard_coded, shifted);
 }
