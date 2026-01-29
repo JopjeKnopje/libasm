@@ -11,7 +11,22 @@
 I've mainly used this project to dive deeper into unit-testing, since these isolated functions are perfect for that.
 This is a pretty dense README file, since it contains the Codam subject. And some my notes of my freshly aquired knowledge while learning about assembly and the ELF format.
 
+## Cloning
+
+HTTPS
+```bash
+git clone --recurse-submodules https://github.com/JopjeKnopje/libasm.git
+```
+SSH
+```bash
+git clone --recurse-submodules git@github.com:JopjeKnopje/libasm.git
+```
+
+
+
+
 ## TODO
+- When running tests init submodule.
 - Setup debugger.
 - https://gcc.gnu.org/onlinedocs/gcc/Gcov.html
 - https://www.throwtheswitch.org/unity.
