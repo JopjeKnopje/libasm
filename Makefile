@@ -91,4 +91,11 @@ test_%: $(TEST_BIN_DIR)/test_% | lib_asm
 
 .PHONY: test
 test: lib_asm $(TEST_BIN_LIST)
-	for test in $(TEST_BIN_LIST) ; do ./$$test -j1 ; done
+	exit_code=0
+	for test in $(TEST_BIN_LIST) ; do \
+		./$$test ; \
+		if [[ $$? -neq 0 ]] ; then \
+			exit_code=$$? ; \
+		fi ; \
+	done
+	# echo $$exit_code; \
