@@ -7,6 +7,13 @@ on:
     branches: [ "main" ]
 
 jobs:
+  prek:
+    runs-on: ghcr.io/j178/prek:v0.3.1
+    steps:
+    - uses: actions/checkout@v3
+    - name: prek
+      run: prek
+
   build-lib:
     runs-on: ubuntu-latest
     steps:
