@@ -1,7 +1,13 @@
 
 
 <h1 align="center">libasm</h1>
-<p align="center">re-writing basic C-functions in Intel x86-64 Assembly</p>
+<p align="center">Re-writing basic C-functions in Intel x86-64 Assembly</p>
+<p align="center">
+		<a href="https://github.com/JopjeKnopje/libasm/actions/workflows/ci.yaml">
+	<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/JopjeKnopje/libasm/ci.yaml?branch=main&style=flat-square">
+	</a>
+
+</p>
 
 <hr />
 
