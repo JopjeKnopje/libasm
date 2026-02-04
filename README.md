@@ -23,11 +23,16 @@ HTTPS
 ```bash
 git clone --recurse-submodules https://github.com/JopjeKnopje/libasm.git
 ```
+
 SSH
 ```bash
 git clone --recurse-submodules git@github.com:JopjeKnopje/libasm.git
 ```
 
+Update submodules after clone of this repo
+```
+git submodule update --init
+```
 
 
 

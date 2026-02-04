@@ -21,7 +21,6 @@ jobs:
 
   build-lib:
     runs-on: ubuntu-latest
-    needs: prek
     steps:
     - uses: actions/checkout@v3
 
@@ -39,6 +38,10 @@ jobs:
 
     - name: install nasm
       run: sudo apt install nasm -y
+
+    - name: init submodules
+      run: git submodule update --init
+
 
     - name: make
       run: make test
