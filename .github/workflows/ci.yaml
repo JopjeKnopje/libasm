@@ -8,9 +8,10 @@ on:
 
 jobs:
   prek:
-    runs-on: ghcr.io/j178/prek:v0.3.1
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - uses: j178/prek-action@v1
 
     - name: install clang-tools
       run: sudo apt install clang-tools -y
