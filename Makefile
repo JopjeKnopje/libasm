@@ -91,4 +91,7 @@ test_%: $(TEST_BIN_DIR)/test_% | lib_asm
 
 .PHONY: test
 test: lib_asm $(TEST_BIN_LIST)
-	for test in $(TEST_BIN_LIST) ; do ./$$test -j1 ; done
+
+.PHONY: test_run
+test_run: test
+	./$(TEST_DIR)/run_tests.sh $(TEST_BIN_DIR)
