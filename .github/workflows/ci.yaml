@@ -39,9 +39,6 @@ jobs:
     - name: install nasm
       run: sudo apt install nasm -y
 
-    - name: init submodules
-      run: git submodule update --init
-
 
     - name: make
       run: make test_run
