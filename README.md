@@ -31,7 +31,7 @@ git clone --recurse-submodules git@github.com:JopjeKnopje/libasm.git
 
 Update submodules after clone of this repo
 ```
-git submodule update --init
+git submodule update --init --recursive
 ```
 
 

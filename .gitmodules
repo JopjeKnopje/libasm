@@ -1,4 +1,4 @@
 [submodule "lib/Unity"]
 	path = lib/Unity
-	url = https://github.com/alariois/Unity
+	url = git@github.com:alariois/Unity.git
 	branch = master
