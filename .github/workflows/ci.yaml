@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
     - uses: j178/prek-action@v1
 
     - name: install clang-tools
@@ -23,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
 
     - name: install nasm
       run: sudo apt install nasm -y
@@ -35,6 +39,8 @@ jobs:
     needs: build-lib
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
 
     - name: install nasm
       run: sudo apt install nasm -y
