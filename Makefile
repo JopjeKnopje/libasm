@@ -46,10 +46,10 @@ re: fclean
 
 .PHONY: compile_commands
 compile_commands:
-	$(MAKE) | compiledb
+	$(MAKE) -nB | compiledb
 
 compile_commands_test:
-	$(MAKE) test | compiledb
+	$(MAKE) -nB test | compiledb
 
 .PHONY: run
 run: all
