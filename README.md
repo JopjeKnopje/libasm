@@ -72,25 +72,24 @@ your library to demonstrate that it is functional.
 
 
 
-## 🏗️ Dev setup
-### Toolchain
-#### clang-format
+## 🏗️ Toolchain
+### clang-format
 [clang-format](https://clang.llvm.org/docs/ClangFormat.html) is part of clang-tools, install with.
 ```bash
 apt install clang-tools
 ```
-#### prek
+### prek
 This will install [prek](https://github.com/j178/prek?tab=readme-ov-file#installation) into `~/.local/bin`
 ```bash
 curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.2.27/prek-installer.sh | sh
 ```
-#### nasm
+### nasm
 Not installed by default on my pop-os.
 ```
 apt install nasm
 ```
 
-#### objconv
+### objconv
 Tool for translating whatever assembly to `nasm` compatible assembly. This one kinda sucks because you have to build it from source, you can clone the repo from 
 
 [objconv - github](https://github.com/gitGNU/objconv)
