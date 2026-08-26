@@ -83,6 +83,8 @@ This will install [prek](https://github.com/j178/prek?tab=readme-ov-file#install
 ```bash
 curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.2.27/prek-installer.sh | sh
 ```
+### Ruby
+Needed for the unit testing framework
 ### nasm
 Not installed by default on my pop-os.
 ```
