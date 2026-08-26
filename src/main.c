@@ -6,8 +6,7 @@ int x;
 int main()
 {
 
-    *_
-	_errno_location() =
+    // _errno_location() =
 
-        return 0;
+    return 0;
 }

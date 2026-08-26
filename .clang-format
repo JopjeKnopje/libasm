@@ -1,25 +1,24 @@
-# https://clang-format-configurator.site/
 ---
 AlignConsecutiveMacros:
-  Enabled: true
+    Enabled: true
 AlignTrailingComments:
-  Kind: Always
+    Kind: Always
 SpaceBeforeParensOptions: {}
 SpaceBeforeParens: ControlStatements
 BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterCaseLabel: true
-  AfterClass: true
-  AfterControlStatement: Always
-  AfterEnum: true
-  AfterFunction: true
-  AfterNamespace: true
-  AfterStruct: true
-  AfterUnion: true
-  AfterExternBlock: true
-  BeforeCatch: true
-  BeforeElse: true
-  BeforeWhile: true
+    AfterCaseLabel: true
+    AfterClass: true
+    AfterControlStatement: Always
+    AfterEnum: true
+    AfterFunction: true
+    AfterNamespace: true
+    AfterStruct: true
+    AfterUnion: true
+    AfterExternBlock: true
+    BeforeCatch: true
+    BeforeElse: true
+    BeforeWhile: true
 IndentWidth: 4
 ColumnLimit: 100
 SeparateDefinitionBlocks: Always

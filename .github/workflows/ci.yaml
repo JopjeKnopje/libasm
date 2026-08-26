@@ -1,50 +1,51 @@
+---
 name: CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 jobs:
-  prek:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
-    - uses: j178/prek-action@v1
+    prek:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  submodules: recursive
+            - uses: j178/prek-action@v1
 
-    - name: install clang-tools
-      run: sudo apt install clang-tools -y
+            - name: install clang-tools
+              run: sudo apt install clang-tools -y
 
-    - name: prek
-      run: prek
+            - name: prek
+              run: prek
 
-  build-lib:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
+    build-lib:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  submodules: recursive
 
-    - name: install nasm
-      run: sudo apt install nasm -y
+            - name: install nasm
+              run: sudo apt install nasm -y
 
-    - name: make
-      run: make lib_asm
+            - name: make
+              run: make lib_asm
 
-  tests:
-    runs-on: ubuntu-latest
-    needs: build-lib
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
+    tests:
+        runs-on: ubuntu-latest
+        needs: build-lib
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  submodules: recursive
 
-    - name: install nasm
-      run: sudo apt install nasm -y
+            - name: install nasm
+              run: sudo apt install nasm -y
 
 
-    - name: make
-      run: make test_run
+            - name: make
+              run: make test_run
