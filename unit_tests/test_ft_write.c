@@ -73,6 +73,16 @@ void test_invalid_fd_return_val()
     TEST_ASSERT_EQUAL_INT64(-1, bytes_written);
 }
 
+void test_null_ptr_string()
+{
+    const char *s = "test_string";
+    const ssize_t s_len = strlen(s);
+
+    ssize_t bytes_written = ft_write(-1, NULL, s_len);
+
+    TEST_ASSERT_EQUAL_INT64(-1, bytes_written);
+}
+
 void test_invalid_fd_errno()
 {
     const char *s = "test_string";
