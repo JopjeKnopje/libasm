@@ -1,6 +1,6 @@
 NAME		:= app
 
-CFLAGS		:= -Wall -Wextra -Werror
+CFLAGS		:= -Wall -Wextra -Werror -g
 # CFLAGS += -g -fsanitize=address
 IFLAGS		:= -I include -I lib/libasm/include
 
