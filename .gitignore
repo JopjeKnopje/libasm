@@ -4,6 +4,4 @@ bin/
 unit_tests/runners
 compile_commands.json
 app
-*.s
-*.asm
 *.out
