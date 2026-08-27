@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <threads.h>
 #include <unistd.h>
 
 int fd;
@@ -18,6 +19,7 @@ void setUp(void)
     char name[] = "/tmp/fileXXXXXX";
     fd = mkstemp(name);
     write(fd, FILE_CONTENT, strlen(FILE_CONTENT));
+    lseek(fd, SEEK_SET, 0);
 
     // TEST_PRINTF("created temp file [%s]", name);
     TEST_ASSERT_GREATER_THAN_INT32_MESSAGE(0, fd, "failed creating tempfile: [%s]",
@@ -34,6 +36,7 @@ void test_read_check_general(void)
 {
     size_t bufsize = 32;
     char s[bufsize];
+    bzero(s, bufsize * sizeof(char));
     const int old_err = errno;
 
     ssize_t bytes_read = ft_read(fd, s, bufsize);
