@@ -1,12 +1,7 @@
-#include <errno.h>
-#include <unistd.h>
-
-int x;
+#include "libasm.h"
 
 int main()
 {
-
-    // _errno_location() =
-
-    return 0;
+    char *s = "123";
+    (void)ft_strlen(s);
 }

@@ -6,5 +6,5 @@
 
 ssize_t ft_write(int fildes, const void *buf, size_t nbyte);
 ssize_t ft_read(int fildes, const void *buf, size_t nbyte);
-
+size_t ft_strlen(const char *s);
 #endif

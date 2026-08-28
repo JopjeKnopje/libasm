@@ -2,7 +2,8 @@ NAME		:= libasm.a
 
 SRC_DIR		:= src
 SRC_FILES	:= ft_write.s \
-			   ft_read.s
+			   ft_read.s \
+			   ft_strlen.s
 SRC_LIST	:= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR		:= obj
