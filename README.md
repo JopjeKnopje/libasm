@@ -91,6 +91,10 @@ Not installed by default on my pop-os.
 apt install nasm
 ```
 
+### gf2
+A gdb frontend 
+https://github.com/nakst/gf
+
 ### objconv
 Tool for translating whatever assembly to `nasm` compatible assembly. This one kinda sucks because you have to build it from source, you can clone the repo from 
 
@@ -232,4 +236,5 @@ T.B.A
 https://www.delorie.com/djgpp/doc/ug/asm/calling.html
 - [LEA vs MOV](https://stackoverflow.com/a/1699778/7363348)
 - [godbolt](https://godbolt.org/)
+
 
