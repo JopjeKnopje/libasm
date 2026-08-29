@@ -2,7 +2,7 @@ NAME		:= app
 
 CFLAGS		:= -Wall -Wextra -Werror -g
 # CFLAGS += -g -fsanitize=address
-IFLAGS		:= -I include -I lib/libasm/include
+IFLAGS		:= -I include -I lib/libasm/include 
 
 
 SRC_DIR		:= src
@@ -84,7 +84,7 @@ $(TEST_RUNNER_DIR)/%_runner.c: $(TEST_DIR)/%.c | $(TEST_RUNNER_DIR)
 	ruby $(TEST_UNITY_ROOT)/auto/generate_test_runner.rb $< $@
 
 $(TEST_BIN_DIR)/%: $(TEST_RUNNER_DIR)/%_runner.c $(LIB_ASM) | $(TEST_BIN_DIR)
-	$(CC) $(CFLAGS) $(IFLAGS) $(TEST_IFLAGS) $(TEST_UNITY_OPTIONS) $(TEST_UNITY_SRC) $(TEST_DIR)/$*.c $< -o $@ $(LIB_ASM) 
+	$(CC) $(CFLAGS) $(IFLAGS) $(TEST_IFLAGS) $(TEST_UNITY_OPTIONS) $(TEST_UNITY_SRC) $(TEST_DIR)/$*.c $< -o $@ $(LIB_ASM)
 
 
 test_%: $(TEST_BIN_DIR)/test_% | lib_asm

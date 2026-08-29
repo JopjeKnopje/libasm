@@ -15,7 +15,7 @@ $(NAME): $(OBJ_LIST)
 	@echo libasm succesfully built
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.s | $(OBJ_DIR)
-	nasm -o $@ $< -f elf64
+	nasm -o $@ $< -f elf64 -g
 
 $(OBJ_DIR):
 	mkdir -p $@
