@@ -7,10 +7,10 @@ ft_write:
 	mov rax, 1
 	syscall
 	cmp rax, 0
-	jl error
+	jl .error
 	ret
 
-error:
+.error:
 	; we need to grab the abs return code from the write syscall
 	neg rax
 	; save the abs in `rax`
