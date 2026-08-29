@@ -2,7 +2,7 @@ NAME		:= app
 
 CFLAGS		:= -Wall -Wextra -Werror -g
 # CFLAGS += -g -fsanitize=address
-IFLAGS		:= -I include -I lib/libasm/include 
+IFLAGS		:= -I include -I lib/libasm/include
 
 
 SRC_DIR		:= src
@@ -41,7 +41,7 @@ fclean: clean
 	rm -f $(NAME)
 
 .PHONY: re
-re: fclean 
+re: fclean
 	$(MAKE) -C lib/libasm re
 
 .PHONY: compile_commands
@@ -67,7 +67,7 @@ TEST_BIN_LIST	:= $(patsubst $(TEST_DIR)/%.c, $(TEST_BIN_DIR)/%, $(TEST_SRC_LIST)
 
 TEST_UNITY_ROOT	:= lib/Unity
 TEST_UNITY_SRC	:= $(TEST_UNITY_ROOT)/src/unity.c
-TEST_IFLAGS		:= -I $(TEST_UNITY_ROOT)/src 
+TEST_IFLAGS		:= -I $(TEST_UNITY_ROOT)/src
 TEST_UNITY_OPTIONS := \
 					-DUNITY_INCLUDE_PRINT_FORMATTED \
 					-DUNITY_OUTPUT_COLOR

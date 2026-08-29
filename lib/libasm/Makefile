@@ -29,5 +29,5 @@ fclean: clean
 	rm -f $(NAME)
 
 .PHONY: re
-re: fclean 
+re: fclean
 	$(MAKE)
