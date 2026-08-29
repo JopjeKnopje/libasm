@@ -61,12 +61,12 @@ git submodule update --init --recursive
 your library to demonstrate that it is functional.
 #### Functions
 - You must rewrite the following functions in assembly:
-	- ft_strlen (man 3 strlen)
-	- ft_strcpy (man 3 strcpy)
-	- ft_strcmp (man 3 strcmp)
-	- ft write (man 2 write)
-	- ft_read (man 2 read)
-	- ft_strdup (man 3 strdup, you can call to malloc)
+	- [x] ft_strlen (man 3 strlen)
+	- [ ] ft_strcpy (man 3 strcpy)
+	- [ ] ft_strcmp (man 3 strcmp)
+	- [x] ft_write (man 2 write)
+	- [x] ft_read (man 2 read)
+	- [ ] ft_strdup (man 3 strdup, you can call to malloc)
 - You must check for errors during syscalls and handle them properly when needed.
 - Your code must set the variable errno properly. For that, you are allowed to call the extern `___error` or `errno_location`.
 
