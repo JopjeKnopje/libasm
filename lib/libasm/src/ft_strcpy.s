@@ -1,5 +1,3 @@
-extern __errno_location
-
 SECTION .text
 global ft_strcpy
 
