@@ -4,17 +4,19 @@ global ft_strcmp
 ft_strcmp:
 	xor rcx, rcx
 .loop:
-	; move s1 into a tmp register, we need to use the 8bit register to prevent grabbagio values
-	mov r10b, byte [rdi + rcx]
+	; move s1 into a 16-bit register, the reason we need a 16-bit reg instead of a 8-bit.
+	; is because when we `SUB` we might get a signed bit, which needs to fit in the resulting register.
+	movzx r10w, byte [rdi + rcx]
+	movzx r11w, byte [rsi + rcx]
 	; sub s1 from s2 and store result in s1.
-	sub r10b, byte [rsi + rcx]
+	sub r10w, r11w
 	; check if there was a diff between s1 and s2.
-	cmp r10b, 0
+	cmp r10w, 0
 	jnz .exit
 
 	inc rcx
 	jmp .loop
-
 .exit:
-	mov al, r10b
+	; move preserving the sign bit
+	movsx rax, r10w
 	ret
