@@ -238,3 +238,5 @@ T.B.A
 https://www.delorie.com/djgpp/doc/ug/asm/calling.html
 - [LEA vs MOV](https://stackoverflow.com/a/1699778/7363348)
 - [godbolt](https://godbolt.org/)
+- [stack buffer overflow attack](https://en.wikipedia.org/wiki/Stack_buffer_overflow)
+- [big ass x86 and amd64 instruction list](https://www.felixcloutier.com/x86/)
