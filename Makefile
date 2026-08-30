@@ -1,6 +1,6 @@
 NAME		:= app
 
-CFLAGS		:= -Wall -Wextra -Werror -g
+CFLAGS		:= -Wall -Wextra -Werror -g -Wno-error=pointer-to-int-cast
 # CFLAGS += -g -fsanitize=address
 IFLAGS		:= -I include -I lib/libasm/include
 
@@ -58,6 +58,7 @@ run: all
 
 TEST_DIR  		:= unit_tests
 TEST_SRC_FILES	:= test_ft_read.c \
+					test_ft_bzero.c \
 					test_ft_strcmp.c \
 					test_ft_strcpy.c \
 					test_ft_strdup.c \

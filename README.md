@@ -240,3 +240,4 @@ https://www.delorie.com/djgpp/doc/ug/asm/calling.html
 - [godbolt](https://godbolt.org/)
 - [stack buffer overflow attack](https://en.wikipedia.org/wiki/Stack_buffer_overflow)
 - [big ass x86 and amd64 instruction list](https://www.felixcloutier.com/x86/)
+- [jmp vs call](https://stackoverflow.com/a/32793293/7363348)
