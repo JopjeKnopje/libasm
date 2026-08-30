@@ -1,6 +1,7 @@
 #include "libasm.h"
 #include "unity.h"
 #include <malloc.h>
+#include <stdint.h>
 
 
 
@@ -26,10 +27,16 @@ void test_malloc_info()
 {
 
 	char *s = ft_strdup("test123");
+	int64_t x = (int64_t ) s;
 
-	printf("%p\n", s);
+	printf("%ld\n", x);
 
-	// s[1] = 't';
+
+	// void *x = (int32_t *) s;
+	//
+	// printf("%u\n", (int32_t) x);
+
+	// s[2100] = 't';
 
 	(void) s;
 	
