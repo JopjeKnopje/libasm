@@ -11,8 +11,8 @@ ft_strcpy:
 	; check if we're at the end of src
 	cmp byte [rsi + rcx], 0
 	je .done
-	mov r10, [rsi + rcx]
-	mov [rdi + rcx], r10
+	mov byte r10, [rsi + rcx]
+	mov qword [rdi + rcx], byte r10
 	inc rcx
 	jmp .loop
 
