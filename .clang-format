@@ -1,8 +1,4 @@
 ---
-AlignConsecutiveMacros:
-    Enabled: true
-AlignTrailingComments:
-    Kind: Always
 SpaceBeforeParensOptions: {}
 SpaceBeforeParens: ControlStatements
 BreakBeforeBraces: Custom
