@@ -233,6 +233,7 @@ T.B.A
 - [ELF Sections](https://refspecs.linuxbase.org/elf/gabi4+/ch4.sheader.html) (Scroll to "Special Sections")
 - [GCC Inline Assembly](https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)
 - [Demystifing .rodata](https://iifx.dev/en/articles/460023732/demystifying-rodata-viewing-string-literals-in-godbolt-assembly)
+- [linux kernel - memory mapping](https://linux-kernel-labs.github.io/refs/heads/master/labs/memory_mapping.html)
 - [Bracket operator in ASM](https://stackoverflow.com/a/48608575/7363348)
 https://www.delorie.com/djgpp/doc/ug/asm/calling.html
 - [LEA vs MOV](https://stackoverflow.com/a/1699778/7363348)
