@@ -37,6 +37,7 @@ git submodule update --init --recursive
 
 
 ## TODO
+- [ ] Play around with registers and their width, see how garbage values come to be.
 - When running tests init submodule.
 - Setup debugger.
 - https://gcc.gnu.org/onlinedocs/gcc/Gcov.html
@@ -63,7 +64,7 @@ your library to demonstrate that it is functional.
 - You must rewrite the following functions in assembly:
 	- [x] ft_strlen (man 3 strlen)
 	- [x] ft_strcpy (man 3 strcpy)
-	- [ ] ft_strcmp (man 3 strcmp)
+	- [x] ft_strcmp (man 3 strcmp)
 	- [x] ft_write (man 2 write)
 	- [x] ft_read (man 2 read)
 	- [ ] ft_strdup (man 3 strdup, you can call to malloc)
