@@ -2,6 +2,10 @@
 
 int main()
 {
-    char *s = "123";
-    (void)ft_strlen(s);
+    const char *s1 = "test123";
+    const char *s2 = "tast123";
+
+    int actual = ft_strcmp(s1, s2);
+	(void) actual;
+
 }
