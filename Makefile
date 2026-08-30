@@ -58,6 +58,7 @@ run: all
 
 TEST_DIR  		:= unit_tests
 TEST_SRC_FILES	:= test_ft_read.c \
+					test_ft_strcmp.c \
 					test_ft_strcpy.c \
 					test_ft_write.c \
 					test_ft_strlen.c

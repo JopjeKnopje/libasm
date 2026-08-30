@@ -1,26 +1,36 @@
 #include "libasm.h"
-#include "string.h"
 #include "unity.h"
 #include <errno.h>
-#include <signal.h>
 #include <stdlib.h>
-#include <sys/types.h>
+#include <string.h>
 #include <sys/wait.h>
 #include <unistd.h>
 
-void test_valid_string(void)
+void test_cmp_basic()
 {
-    const char *s = "123";
+    const char *s1 = "test123";
+    const char *s2 = "tast123";
 
-    const int expected = strlen(s);
-    const int actual = ft_strlen(s);
+    int expected = strcmp(s1, s2);
+    int actual = ft_strcmp(s1, s2);
 
     TEST_ASSERT_EQUAL_INT32_MESSAGE(expected, actual, "output values don't match");
 }
 
-void test_null_should_crash(void)
+void test_cmp_uneven()
 {
-    const char *s = NULL;
+    const char *s1 = "t9st";
+    const char *s2 = "tast123";
+
+    int expected = strcmp(s1, s2);
+    int actual = ft_strcmp(s1, s2);
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(expected, actual, "output values don't match");
+}
+
+void test_cmp_null_should_crash()
+{
+    const char *s1 = NULL;
+    const char *s2 = "tast123";
 
     const pid_t pid = fork();
     TEST_ASSERT_NOT_EQUAL_INT32_MESSAGE(-1, pid, strerror(errno));
@@ -28,7 +38,7 @@ void test_null_should_crash(void)
     if (pid == 0)
     {
         // this should crash
-        int x = ft_strlen(s);
+        int x = ft_strcmp(s1, s2);
         // we need this cast otherwise the compiler will optimize our function call away,
         (void)x;
         // exit as a fallback

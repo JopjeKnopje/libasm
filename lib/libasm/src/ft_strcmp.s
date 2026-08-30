@@ -4,7 +4,7 @@ global ft_strcmp
 ft_strcmp:
 	xor rcx, rcx
 .loop:
-	; move s1 into a tmp register.
+	; move s1 into a tmp register, we need to use the 8bit register to prevent grabbagio values
 	mov r10b, byte [rdi + rcx]
 	; sub s1 from s2 and store result in s1.
 	sub r10b, byte [rsi + rcx]

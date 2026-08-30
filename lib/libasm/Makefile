@@ -2,6 +2,7 @@ NAME		:= libasm.a
 
 SRC_DIR		:= src
 SRC_FILES	:= ft_read.s \
+			   ft_strcmp.s \
 			   ft_strcpy.s \
 			   ft_strlen.s \
 			   ft_write.s
