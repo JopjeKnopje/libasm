@@ -15,13 +15,12 @@ void test_copy()
 
     TEST_ASSERT_EQUAL_PTR_MESSAGE(&dst, s, "return value is not equal to dst pointer");
     TEST_ASSERT_EQUAL_CHAR_ARRAY(src, dst, strlen(src));
-    printf("%s\n", dst);
 }
 
 void test_copy_overflow()
 {
     size_t SIZE = 1;
-    const char *src = "123";
+    const char *src = "test123";
     char dst[SIZE];
 
     char *s = ft_strcpy(dst, src);

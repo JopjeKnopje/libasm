@@ -62,7 +62,7 @@ your library to demonstrate that it is functional.
 #### Functions
 - You must rewrite the following functions in assembly:
 	- [x] ft_strlen (man 3 strlen)
-	- [ ] ft_strcpy (man 3 strcpy)
+	- [x] ft_strcpy (man 3 strcpy)
 	- [ ] ft_strcmp (man 3 strcmp)
 	- [x] ft_write (man 2 write)
 	- [x] ft_read (man 2 read)
