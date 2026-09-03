@@ -7,7 +7,7 @@ ft_bzero:
 	; zero our counter
 	xor rcx, rcx
 .loop:
-	; if counter is greater than rsi
+	; if counter is greater or equal to rsi
 	cmp rcx, rsi
 	jge .exit
 

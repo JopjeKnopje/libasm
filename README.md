@@ -225,7 +225,6 @@ T.B.A
 ## 📚 Sources
 - [Intel vs AT&T ASM](https://stackoverflow.com/a/8550917)
 - [UNIX Syscalls table](https://www.chromium.org/chromium-os/developer-library/reference/linux-constants/syscalls/)
-- [Calling Convetions](https://wiki.osdev.org/Calling_Conventions)
 - [CPU Registers x86](https://wiki.osdev.org/CPU_Registers_x86)
 - [NASM Docs](https://www.nasm.us/docs/3.01/)
 - [NASM instructions](http://www.posix.nl/linuxassembly/nasmdochtml/nasmdoca.html)
@@ -241,3 +240,5 @@ https://www.delorie.com/djgpp/doc/ug/asm/calling.html
 - [stack buffer overflow attack](https://en.wikipedia.org/wiki/Stack_buffer_overflow)
 - [big ass x86 and amd64 instruction list](https://www.felixcloutier.com/x86/)
 - [jmp vs call](https://stackoverflow.com/a/32793293/7363348)
+- [x86-64 Calling convention (mentions stack allignment)](https://wiki.osdev.org/System_V_ABI#x86-64)
+- [PCMPISTRI](https://www.felixcloutier.com/x86/pcmpistri)
