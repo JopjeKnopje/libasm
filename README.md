@@ -161,3 +161,4 @@ https://www.delorie.com/djgpp/doc/ug/asm/calling.html
 - [jmp vs call](https://stackoverflow.com/a/32793293/7363348)
 - [x86-64 Calling convention (mentions stack allignment)](https://wiki.osdev.org/System_V_ABI#x86-64)
 - [PCMPISTRI](https://www.felixcloutier.com/x86/pcmpistri)
+- [Memory mapping](https://linux-kernel-labs.github.io/refs/heads/master/labs/memory_mapping.html)
