@@ -17,6 +17,11 @@
 I've mainly used this project to dive deeper into unit-testing, since these isolated functions are perfect for that.
 This is a pretty dense README file, since it contains the Codam subject. And some my notes of my freshly aquired knowledge while learning about assembly and the ELF format.
 
+
+> [!NOTE]
+> Use the `--recurse-submodules` when cloning or run `git submodule update --init --recursive` after cloning.
+
+
 ## Cloning
 
 HTTPS
