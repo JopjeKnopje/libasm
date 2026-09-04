@@ -1,24 +1,26 @@
 #include "libasm.h"
 #include "unity.h"
+#include <asm-generic/errno-base.h>
+#include <errno.h>
 #include <malloc.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <string.h>
 
-void print_info()
-{
-    struct mallinfo2 mi = mallinfo2();
+#define OK (0)
 
-    printf("Total non-mmapped bytes (arena):       %lu\n", mi.arena);
-    printf("# of free chunks (ordblks):            %lu\n", mi.ordblks);
-    printf("# of free fastbin blocks (smblks):     %lu\n", mi.smblks);
-    printf("# of mapped regions (hblks):           %lu\n", mi.hblks);
-    printf("Bytes in mapped regions (hblkhd):      %lu\n", mi.hblkhd);
-    printf("Max. total allocated space (usmblks):  %lu\n", mi.usmblks);
-    printf("Free bytes held in fastbins (fsmblks): %lu\n", mi.fsmblks);
-    printf("Total allocated space (uordblks):      %lu\n", mi.uordblks);
-    printf("Total free space (fordblks):           %lu\n", mi.fordblks);
-    printf("Topmost releasable block (keepcost):   %lu\n", mi.keepcost);
-}
+// void test_malloc_fail(void)
+// {
+// 	// make sure errno is not set
+//     TEST_ASSERT_EQUAL_INT32_MESSAGE(OK, errno, "errno is already set to [%s]", strerror(errno));
+//
+//     void *ptr = ft_malloc_wrap(PTRDIFF_MAX);
+// 	(void) ptr;
+//     // 1. check if `errno` has been set by our function.
+//     TEST_ASSERT_EQUAL_INT32_MESSAGE(ENOMEM, errno, "expected errno [%s] got [%s]",
+//     strerror(ENOMEM), strerror(errno));
+//
+// }
 
 // TODO: Figure out how to monitor malloced size
 void test_malloc_info()
@@ -27,6 +29,7 @@ void test_malloc_info()
     char *s = ft_strdup(test);
     int64_t x = (int64_t)s;
 
+    printf("[%s]\n", s);
     printf("%ld\n", x);
 
     // void *x = (int32_t *) s;
