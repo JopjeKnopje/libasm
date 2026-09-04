@@ -1,7 +1,7 @@
 
 
 <h1 align="center">libasm</h1>
-<p align="center">Re-writing basic C-functions in Intel x86-64 Assembly</p>
+<p align="center">Re-writing libc C-functions in Intel x86-64 Assembly, compiled with nasm</p>
 <p align="center">
 		<a href="https://github.com/JopjeKnopje/libasm/actions/workflows/ci.yaml">
 	<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/JopjeKnopje/libasm/ci.yaml?branch=main&style=flat-square">
@@ -17,8 +17,53 @@ I've mainly used this project to dive deeper into unit-testing, since these isol
 This is a pretty dense README file, since it contains the Codam subject. And some my notes of my freshly aquired knowledge while learning about assembly and the ELF format.
 
 
+
 > [!NOTE]
 > Use the `--recurse-submodules` when cloning or run `git submodule update --init --recursive` after cloning.
+
+
+## Toolchain
+- [nasm](https://www.nasm.us/)
+```
+apt install nasm
+```
+- [prek](https://github.com/j178/prek?tab=readme-ov-file#installation)
+```bash
+# install prek into `~/.local/bin
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.2.27/prek-installer.sh | sh
+# install it into the repo
+prek install
+```
+
+- [clang-format](https://clang.llvm.org/docs/ClangFormat.html) which is part of clang-tools, this is mainly run by the pre-commit hook.
+```bash
+apt install clang-tools
+```
+
+- A gdb frontend, more user friendly than the cli https://github.com/nakst/gf
+
+
+## Handy commands
+List the symbols in the lib
+```bash
+nm lib/libasm/libasm.a
+```
+
+### Generate assembly
+To generate asm from c code you can use the following command
+```
+gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
+```
+- `-masm` sets the dialect, options are: [`att`, `intel`].
+- `-Og` suppresses any code optimization passes, giving us a pretty clear view to how the code relates to the assembly.
+- `fverbose-asm` adds extra comments to make the assembly more readable.
+
+List out the asm using objdump
+```bash
+objdump -M intel -d
+```
+
+
 
 
 # 📋 Subject
@@ -46,52 +91,6 @@ your library to demonstrate that it is functional.
 	- [x] ft_strdup (man 3 strdup, you can call to malloc)
 - You must check for errors during syscalls and handle them properly when needed.
 - Your code must set the variable errno properly. For that, you are allowed to call the extern `___error` or `errno_location`.
-
-
-
-## Toolchain
-### clang-format
-[clang-format](https://clang.llvm.org/docs/ClangFormat.html) is part of clang-tools, install with.
-```bash
-apt install clang-tools
-```
-### prek
-This will install [prek](https://github.com/j178/prek?tab=readme-ov-file#installation) into `~/.local/bin`
-```bash
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/download/v0.2.27/prek-installer.sh | sh
-```
-### Ruby
-Needed for the unit testing framework
-### nasm
-Not installed by default on my pop-os.
-```
-apt install nasm
-```
-
-### gf2
-A gdb frontend
-https://github.com/nakst/gf
-
-
-### Handy commands
-List the symbols in the lib
-```bash
-nm lib/libasm/libasm.a
-```
-
-### Generate assembly
-To generate asm from c code you can use the following command
-```
-gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
-```
-- `-masm` sets the dialect, options are: [`att`, `intel`].
-- `-Og` suppresses any code optimization passes, giving us a pretty clear view to how the code relates to the assembly.
-- `fverbose-asm` adds extra comments to make the assembly more readable.
-
-List out the asm using objdump
-```bash
-objdump -M intel -d
-```
 
 
 
