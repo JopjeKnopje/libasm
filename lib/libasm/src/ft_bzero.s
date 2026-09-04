@@ -1,8 +1,7 @@
-SECTION .text
 global ft_bzero
 
-; rdi address
-; rsi size N
+section .note.GNU-stack
+section .text
 ft_bzero:
 	; zero our counter
 	xor rcx, rcx

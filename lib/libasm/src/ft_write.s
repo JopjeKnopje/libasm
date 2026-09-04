@@ -1,7 +1,9 @@
 extern __errno_location
 
-SECTION .text
 global ft_write
+
+section .note.GNU-stack
+section .text
 
 ft_write:
 	mov rax, 1

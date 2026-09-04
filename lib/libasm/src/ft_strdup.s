@@ -3,8 +3,10 @@ extern malloc
 extern ft_strlen
 extern ft_strcpy
 
-SECTION .text
 global ft_strdup
+
+section .note.GNU-stack
+section .text
 ft_strdup:
 	; zero output regiser
 	xor rax, rax

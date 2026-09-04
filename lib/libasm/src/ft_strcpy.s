@@ -1,8 +1,7 @@
-SECTION .text
 global ft_strcpy
 
-; rdi dst
-; rsi src
+section .note.GNU-stack
+SECTION .text
 ft_strcpy:
 	xor rcx, rcx
 .loop:
