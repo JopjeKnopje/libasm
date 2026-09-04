@@ -13,7 +13,6 @@
 
 </p>
 
-## Overview
 I've mainly used this project to dive deeper into unit-testing, since these isolated functions are perfect for that.
 This is a pretty dense README file, since it contains the Codam subject. And some my notes of my freshly aquired knowledge while learning about assembly and the ELF format.
 
@@ -22,35 +21,7 @@ This is a pretty dense README file, since it contains the Codam subject. And som
 > Use the `--recurse-submodules` when cloning or run `git submodule update --init --recursive` after cloning.
 
 
-## Cloning
-
-HTTPS
-```bash
-git clone --recurse-submodules https://github.com/JopjeKnopje/libasm.git
-```
-
-SSH
-```bash
-git clone --recurse-submodules git@github.com:JopjeKnopje/libasm.git
-```
-
-Update submodules after clone of this repo
-```
-git submodule update --init --recursive
-```
-
-
-
-## TODO
-- [ ] Play around with registers and their width, see how garbage values come to be.
-- When running tests init submodule.
-- Setup debugger.
-- https://gcc.gnu.org/onlinedocs/gcc/Gcov.html
-- https://www.throwtheswitch.org/unity.
-- asm-lsp thinks we're doing `GAS` instead of `nasm`.
-- Read about ELF format and sections.
-
-## 📋 Subject
+# 📋 Subject
 ### Common instructions
 - Your Makefile must at least contain the rules `$(NAME)`, `all`, `clean`, `fclean` and
 `re`. It must recompile/relink only the necessary files.
@@ -72,13 +43,13 @@ your library to demonstrate that it is functional.
 	- [x] ft_strcmp (man 3 strcmp)
 	- [x] ft_write (man 2 write)
 	- [x] ft_read (man 2 read)
-	- [ ] ft_strdup (man 3 strdup, you can call to malloc)
+	- [x] ft_strdup (man 3 strdup, you can call to malloc)
 - You must check for errors during syscalls and handle them properly when needed.
 - Your code must set the variable errno properly. For that, you are allowed to call the extern `___error` or `errno_location`.
 
 
 
-## 🏗️ Toolchain
+## Toolchain
 ### clang-format
 [clang-format](https://clang.llvm.org/docs/ClangFormat.html) is part of clang-tools, install with.
 ```bash
@@ -101,33 +72,11 @@ apt install nasm
 A gdb frontend
 https://github.com/nakst/gf
 
-### objconv
-Tool for translating whatever assembly to `nasm` compatible assembly. This one kinda sucks because you have to build it from source, you can clone the repo from
-
-[objconv - github](https://github.com/gitGNU/objconv)
-
-The Makefile is somewhat broken?
-I fixed it by placing it in the `src/` directory and running it from there.
-
-```bash
-git clone git@github.com:gitGNU/objconv.git
-cd objconv
-mv Makefile src/
-cd src
-make
-```
-
-
-This is the command I use for getting the `nasm` assembly from `src/main.c`
-
-```bash
-gcc src/main.c -Og -o a.out; objconv a.out -fnasm
-```
 
 ### Handy commands
 List the symbols in the lib
 ```bash
-nm lib/libasm.so
+nm lib/libasm/libasm.a
 ```
 
 ### Generate assembly
@@ -139,13 +88,9 @@ gcc <FILE.C> -S -masm=intel -Og -fverbose-asm
 - `-Og` suppresses any code optimization passes, giving us a pretty clear view to how the code relates to the assembly.
 - `fverbose-asm` adds extra comments to make the assembly more readable.
 
+List out the asm using objdump
 ```bash
 objdump -M intel -d
-```
-
-
-```
-gcc src/main.c -Og && objconv a.out -fnasm
 ```
 
 
