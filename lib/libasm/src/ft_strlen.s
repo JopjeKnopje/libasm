@@ -3,7 +3,6 @@ global ft_strlen
 
 ft_strlen:
 	; init our variable to 0
-	pcmpistri 
 	xor rax, rax
 .loop:
 	; ZF is set when `RDI + RAX` is 0
