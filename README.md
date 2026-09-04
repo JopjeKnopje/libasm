@@ -40,7 +40,7 @@ prek install
 apt install clang-tools
 ```
 
-- A gdb frontend, more user friendly than the cli https://github.com/nakst/gf
+- A gdb [frontend](https://github.com/nakst/gf), more user friendly than the cli
 
 
 ## Handy commands
@@ -65,69 +65,7 @@ objdump -M intel -d
 
 
 
-
-# 📋 Subject
-### Common instructions
-- Your Makefile must at least contain the rules `$(NAME)`, `all`, `clean`, `fclean` and
-`re`. It must recompile/relink only the necessary files.
-- You must write **64-bit** assembly, beware of the "calling convention".
-- You **can’t do** inline ASM, you must do ’*s’ files.
-- You must compile your assembly code with nasm.
-- You must use the **Intel syntax**, not the AT&T syntax.
-- It is forbidden to use the compilation flag: `-no-pie`.
-
-### Mandatory part
-
-- The library must be called `libasm.a`.
-- You must submit a main function that will test your functions and compile with
-your library to demonstrate that it is functional.
-#### Functions
-- You must rewrite the following functions in assembly:
-	- [x] ft_strlen (man 3 strlen)
-	- [x] ft_strcpy (man 3 strcpy)
-	- [x] ft_strcmp (man 3 strcmp)
-	- [x] ft_write (man 2 write)
-	- [x] ft_read (man 2 read)
-	- [x] ft_strdup (man 3 strdup, you can call to malloc)
-- You must check for errors during syscalls and handle them properly when needed.
-- Your code must set the variable errno properly. For that, you are allowed to call the extern `___error` or `errno_location`.
-
-
-
-## 🤓 Knowledge
-
-### Makefile Automatic Variables
-[gnu.org](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)[stackoverflow](https://stackoverflow.com/a/3220288)
-```makefile
-all: library.cpp main.cpp
-```
-- `$@` evaluates to all
-- `$<` evaluates to library.cpp
-- `$^` evaluates to library.cpp main.cpp
-
-```makefile
-all:: main.c
-```
-
-The double colon `::` is used for seperating out rules, more info [here](https://web.archive.org/web/20180122002430/http://owen.sj.ca.us/~rk/howto/slides/make/slides/makecolon.html)
-
-```makefile
-PRECIOUS: intermediate_file.c
-```
-
-Make automatically deletes intermediate file's, use `PRECIOUS` to preserve them.
-
-### ELF
-#### Sections
-From: `man elf`
-
-- `.bss` (Block Starting Symbol) holds the statically allocated variables that have not been assigned.
-- `.text` holds the "text", or executable instructions of a program.
-- `.data` holds initialized data, its writable (`SHF_WRITE`).
-- `.rodata` read-only data, such as `const` variables..
-
-> [!NOTE] Note to self
-> I've only seen `.bss` when declaring a global variable, not when declaring a static one inside a function.
+## Learnings
 
 ### Memory
 #### Argument Calling Order
@@ -168,10 +106,41 @@ T.B.A
 x86-64 is a 64-bit extension of the x86 instruction set.
 T.B.A
 
-## TODO
-- [ ] Add docx instructions for setting up prek and the other dev dependencies
 
-## 📚 Sources
+### Makefile Automatic Variables
+[gnu.org](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)[stackoverflow](https://stackoverflow.com/a/3220288)
+```makefile
+all: library.cpp main.cpp
+```
+- `$@` evaluates to all
+- `$<` evaluates to library.cpp
+- `$^` evaluates to library.cpp main.cpp
+
+```makefile
+all:: main.c
+```
+
+The double colon `::` is used for seperating out rules, more info [here](https://web.archive.org/web/20180122002430/http://owen.sj.ca.us/~rk/howto/slides/make/slides/makecolon.html)
+
+```makefile
+PRECIOUS: intermediate_file.c
+```
+Make automatically deletes intermediate file's, use `PRECIOUS` to preserve them.
+
+### ELF
+#### Sections
+From: `man elf`
+
+- `.bss` (Block Starting Symbol) holds the statically allocated variables that have not been assigned.
+- `.text` holds the "text", or executable instructions of a program.
+- `.data` holds initialized data, its writable (`SHF_WRITE`).
+- `.rodata` read-only data, such as `const` variables..
+
+> [!NOTE] Note to self
+> I've only seen `.bss` when declaring a global variable, not when declaring a static one inside a function.
+
+
+## Resources
 - [Intel vs AT&T ASM](https://stackoverflow.com/a/8550917)
 - [UNIX Syscalls table](https://www.chromium.org/chromium-os/developer-library/reference/linux-constants/syscalls/)
 - [CPU Registers x86](https://wiki.osdev.org/CPU_Registers_x86)
