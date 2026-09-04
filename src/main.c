@@ -6,6 +6,5 @@ int main()
     const char *s2 = "tast123";
 
     int actual = ft_strcmp(s1, s2);
-	(void) actual;
-
+    (void)actual;
 }
