@@ -7,13 +7,11 @@ extern ft_bzero
 
 SECTION .text
 global ft_strdup
-; inherently 8 bytes op stack
 ft_strdup:
 	xor rax, rax
 	; save input string on stack
-	push qword rdi
+	mov r13, rdi
 	call ft_strlen
-	; get the return value of `ft_strlen` and store pass to malloc
 	; space for NULL terminator
 	inc rax
 	mov rdi, rax
@@ -21,7 +19,9 @@ ft_strdup:
 
 	; mov the malloc'ed address into rdi.
 	mov rdi, rax
-	pop qword rsi
+	; get rsi input string
+	mov rsi, r13
+	; add rsp, 8
 	call ft_strcpy
 	ret
 
