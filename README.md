@@ -62,8 +62,7 @@ List out the asm using objdump
 ```bash
 objdump -M intel -d
 ```
-
-
+<br>
 
 ## Learnings
 
@@ -136,8 +135,10 @@ From: `man elf`
 - `.data` holds initialized data, its writable (`SHF_WRITE`).
 - `.rodata` read-only data, such as `const` variables..
 
-> [!NOTE] Note to self
+
+> [!NOTE]
 > I've only seen `.bss` when declaring a global variable, not when declaring a static one inside a function.
+
 
 
 ## Resources
