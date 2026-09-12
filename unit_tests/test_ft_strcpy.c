@@ -1,6 +1,7 @@
 #include "libasm.h"
 #include "unity.h"
 #include <stddef.h>
+#include <stdio.h>
 #include <string.h>
 #include <strings.h>
 
@@ -28,12 +29,12 @@ void test_copy_null_term()
     // zero our array, and set it to a non-zero character, that way we can check if it has been
     // NULL-terminated later on
     bzero(dst, DST_SIZE);
-    memset(dst, '1', DST_SIZE - 1);
+    memset(dst, '=', DST_SIZE - 1);
 
-    char *s = strcpy(dst, src);
+    char *s = ft_strcpy(dst, src);
 
     TEST_ASSERT_EQUAL_PTR_MESSAGE(&dst, s, "return value is not equal to dst pointer");
-    TEST_ASSERT_EQUAL_MESSAGE(dst[SIZE], NULL, "NULL terminator not set");
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE(0, dst[SIZE], "NULL terminator not set");
 }
 
 void test_copy_overflow()
