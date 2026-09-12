@@ -1,6 +1,7 @@
 #include "libasm.h"
 #include "unity.h"
 #include <stddef.h>
+#include "big_str.h"
 #include <stdio.h>
 #include <string.h>
 #include <strings.h>
@@ -9,6 +10,20 @@ void test_copy()
 {
     size_t SIZE = 32;
     const char *src = "test123";
+    char dst[SIZE];
+    bzero(dst, SIZE * sizeof(char));
+
+    char *s = ft_strcpy(dst, src);
+
+    TEST_ASSERT_EQUAL_PTR_MESSAGE(&dst, s, "return value is not equal to dst pointer");
+    TEST_ASSERT_EQUAL_CHAR_ARRAY(src, dst, strlen(src));
+}
+
+void test_copy_large()
+{
+	// 800k chars
+	const char *src = get_big_str();
+    size_t SIZE = ft_strlen(src);
     char dst[SIZE];
     bzero(dst, SIZE * sizeof(char));
 
