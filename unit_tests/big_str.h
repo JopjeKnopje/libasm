@@ -8950,5 +8950,5 @@
     "long-string-very-long-string-very-long-string-very-long-string-very-long-string-very-long-"   \
     "string-very-long-string-very-long-string-very-long-string-very-long-string-very-long-string-" \
     "very-long-string-very-long-string-very-long-string-very-long-string-very-long-string-very-"   \
-    "long-string-very-long-string-very-long-string-";
+    "long-string-very-long-string-very-long-string-"
 #endif // !DEBUG

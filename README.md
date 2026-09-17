@@ -162,3 +162,4 @@ https://www.delorie.com/djgpp/doc/ug/asm/calling.html
 - [x86-64 Calling convention (mentions stack allignment)](https://wiki.osdev.org/System_V_ABI#x86-64)
 - [PCMPISTRI](https://www.felixcloutier.com/x86/pcmpistri)
 - [Memory mapping](https://linux-kernel-labs.github.io/refs/heads/master/labs/memory_mapping.html)
+- [preserved registers (thanks Ruben & Jisse)](https://www.cs.uaf.edu/2012/fall/cs301/lecture/09_10_functions.html)

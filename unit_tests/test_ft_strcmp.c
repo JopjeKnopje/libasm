@@ -1,3 +1,4 @@
+#include "big_str.h"
 #include "libasm.h"
 #include "unity.h"
 #include <errno.h>
@@ -6,7 +7,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-void test_cmp_basic()
+void test_cmp_same_length_no_match()
 {
     const char *s1 = "test123";
     const char *s2 = "tast123";
@@ -21,6 +22,56 @@ void test_cmp_uneven()
 {
     const char *s1 = "t9st";
     const char *s2 = "tast123";
+
+    int expected = strcmp(s1, s2);
+    int actual = ft_strcmp(s1, s2);
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(expected, actual, "output values don't match");
+}
+
+void test_cmp_simple_match()
+{
+    const char *s1 = "this-is-a-string";
+    const char *s2 = "this-is-a-string";
+
+    int expected = strcmp(s1, s2);
+    int actual = ft_strcmp(s1, s2);
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(expected, actual, "output values don't match");
+}
+
+void test_cmp_big_str_match()
+{
+    const char *s1 = BIG_STR;
+    const char *s2 = BIG_STR;
+
+    int expected = strcmp(s1, s2);
+    int actual = ft_strcmp(s1, s2);
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(expected, actual, "output values don't match");
+}
+
+void test_cmp_big_str_uneven()
+{
+    const char *s1 = "smoll";
+    const char *s2 = BIG_STR;
+
+    int expected = strcmp(s1, s2);
+    int actual = ft_strcmp(s1, s2);
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(expected, actual, "output values don't match");
+}
+
+void test_cmp_empty()
+{
+    const char *s1 = "";
+    const char *s2 = "";
+
+    int expected = strcmp(s1, s2);
+    int actual = ft_strcmp(s1, s2);
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(expected, actual, "output values don't match");
+}
+
+void test_cmp_empty_full()
+{
+    const char *s1 = "";
+    const char *s2 = "text";
 
     int expected = strcmp(s1, s2);
     int actual = ft_strcmp(s1, s2);
