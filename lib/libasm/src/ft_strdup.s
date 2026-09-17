@@ -27,4 +27,6 @@ ft_strdup:
 	ret
 
 .error:
+	; keep da stack alligned
+	pop rsi
 	ret
