@@ -15,6 +15,7 @@ void test_copy()
 
     char *s = ft_strcpy(dst, src);
 
+    TEST_ASSERT_NOT_NULL(s);
     TEST_ASSERT_EQUAL_PTR_MESSAGE(&dst, s, "return value is not equal to dst pointer");
     TEST_ASSERT_EQUAL_CHAR_ARRAY(src, dst, strlen(src));
 }
@@ -29,6 +30,7 @@ void test_copy_large()
 
     char *s = ft_strcpy(dst, src);
 
+    TEST_ASSERT_NOT_NULL(s);
     TEST_ASSERT_EQUAL_PTR_MESSAGE(&dst, s, "return value is not equal to dst pointer");
     TEST_ASSERT_EQUAL_CHAR_ARRAY(src, dst, strlen(src));
 }
@@ -48,6 +50,7 @@ void test_copy_null_term()
 
     char *s = ft_strcpy(dst, src);
 
+    TEST_ASSERT_NOT_NULL(s);
     TEST_ASSERT_EQUAL_PTR_MESSAGE(&dst, s, "return value is not equal to dst pointer");
     TEST_ASSERT_EQUAL_CHAR_MESSAGE(0, dst[SIZE], "NULL terminator not set");
 }
@@ -60,6 +63,7 @@ void test_copy_overflow()
 
     char *s = ft_strcpy(dst, src);
 
+    TEST_ASSERT_NOT_NULL(s);
     TEST_ASSERT_EQUAL_PTR_MESSAGE(&dst, s, "return value is not equal to dst pointer");
     TEST_ASSERT_EQUAL_CHAR_ARRAY_MESSAGE(src, dst, strlen(src), "overflow failed");
 }
