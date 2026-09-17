@@ -4,6 +4,7 @@ global ft_read
 
 section .note.GNU-stack
 section .text
+
 ft_read:
 	mov rax, 0
 	syscall
