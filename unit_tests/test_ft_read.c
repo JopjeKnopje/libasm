@@ -1,17 +1,13 @@
 #include "libasm.h"
 #include "unity.h"
 #include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <strings.h>
-#include <threads.h>
 #include <unistd.h>
 
 int fd;
 
-char *FILE_CONTENT = "some-text";
+char *FILE_CONTENT = "this is content for in a file\nnewline haha put some stuff here";
 
 void setUp(void)
 {
@@ -34,7 +30,7 @@ void tearDown(void)
 
 void test_read_check_general(void)
 {
-    size_t bufsize = 32;
+    size_t bufsize = 256;
     char s[bufsize];
     bzero(s, bufsize * sizeof(char));
     const int old_err = errno;
