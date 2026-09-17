@@ -11,7 +11,6 @@ void test_copy()
     size_t SIZE = 32;
     const char *src = "test123";
     char dst[SIZE];
-    bzero(dst, SIZE * sizeof(char));
 
     char *s = ft_strcpy(dst, src);
 
@@ -26,7 +25,6 @@ void test_copy_large()
     const char *src = BIG_STR;
     size_t SIZE = ft_strlen(src);
     char dst[SIZE];
-    bzero(dst, SIZE * sizeof(char));
 
     char *s = ft_strcpy(dst, src);
 
@@ -45,7 +43,6 @@ void test_copy_null_term()
 
     // zero our array, and set it to a non-zero character, that way we can check if it has been
     // NULL-terminated later on
-    bzero(dst, DST_SIZE);
     memset(dst, '=', DST_SIZE - 1);
 
     char *s = ft_strcpy(dst, src);
