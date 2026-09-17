@@ -1,7 +1,7 @@
+#include "big_str.h"
 #include "libasm.h"
 #include "unity.h"
 #include <stddef.h>
-#include "big_str.h"
 #include <stdio.h>
 #include <string.h>
 #include <strings.h>
@@ -21,8 +21,8 @@ void test_copy()
 
 void test_copy_large()
 {
-	// 800k chars
-	const char *src = get_big_str();
+    // 800k chars
+    const char *src = BIG_STR;
     size_t SIZE = ft_strlen(src);
     char dst[SIZE];
     bzero(dst, SIZE * sizeof(char));
