@@ -7,6 +7,7 @@ global ft_strdup
 
 section .note.GNU-stack
 section .text
+
 ft_strdup:
 	; zero output regiser
 	xor rax, rax

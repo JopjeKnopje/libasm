@@ -2,6 +2,7 @@ global ft_strcmp
 
 section .note.GNU-stack
 section .text
+
 ft_strcmp:
 	xor rcx, rcx
 .loop:
