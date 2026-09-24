@@ -12,7 +12,13 @@ ft_strdup:
 	; zero output regiser
 	xor rax, rax
 	; save input string on stack
+	; save caller base ptr
+	push rbp
+	mov rbp, rsp
+	; allign
+	sub rsp, 8
 	push rdi
+
 	call ft_strlen
 
 	; space for NULL terminator
@@ -20,14 +26,14 @@ ft_strdup:
 	mov rdi, rax
 	call malloc wrt ..plt
 	cmp rax, 0
-	je .error
+	je .return
 
 	mov rdi, rax
 	pop rsi
 	call ft_strcpy
-	ret
 
-.error:
+.return:
 	; keep da stack alligned
-	pop rsi
+	mov rsp, rbp
+	pop rbp
 	ret
