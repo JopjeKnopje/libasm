@@ -16,10 +16,11 @@ ft_read:
 	; we need to grab the abs return code from the write syscall
 	neg rax
 	; save the abs in `rax`
-	mov rdi, rax
+	push rax
 	; get the address of `errno`
     call __errno_location wrt ..plt
 	; de-reference the address and write our error code to it
+	pop rdi
     mov [rax], rdi
 	; return -1
 	mov rax, -1
